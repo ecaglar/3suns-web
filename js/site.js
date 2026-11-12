@@ -71,12 +71,15 @@
   }
 
   function heroButtons() {
-    var you = os === "mac" ? (macArch === "intel" ? "macIntel" : "macArm") : os === "windows" ? "windows" : null;
-    $$(".inst").forEach(function (a) {
-      var b = $(".inst-t b", a), i = $(".inst-t i", a);
-      a.classList.toggle("is-you", a.getAttribute("data-dl") === you);
-      a.setAttribute("aria-label", "Download 3suns " + (CFG.version || "") + " for " + (b ? b.textContent : "") + ", " + (i ? i.textContent : ""));
-    });
+    // the hero: the button for this computer is the gold one and comes first; the other Mac build is the small link
+    var mac = $('.inst[data-os="mac"]'), win = $('.inst[data-os="windows"]'), note = $("#inst-note"), intel = os === "mac" && macArch === "intel";
+    if (mac && intel) {
+      mac.setAttribute("data-dl", "macIntel");
+      if (note) note.innerHTML = 'Mac build is for Intel. <a data-dl="macArm" href="#download">Get the Apple Silicon build</a>';
+    }
+    if (mac && win) { mac.classList.toggle("is-you", os !== "windows"); win.classList.toggle("is-you", os === "windows"); }
+    if (mac) mac.setAttribute("aria-label", "Download for Mac, " + (intel ? "Intel" : "Apple Silicon") + ", version " + (CFG.version || ""));
+    if (win) win.setAttribute("aria-label", "Download for Windows, version " + (CFG.version || ""));
     var card = $('.dl-card[data-os="' + os + '"]');
     if (card) card.classList.add("is-you");
     if (os === "mac") {
