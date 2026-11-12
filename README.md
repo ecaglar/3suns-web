@@ -2,16 +2,16 @@
 
 Professional astrology software for Mac and Windows, published by Karia LLC.
 
-- Website: https://ecaglar.github.io/3suns-web/
 - Installers: the [Releases](https://github.com/ecaglar/3suns-web/releases) of this repository
 - Source code: attached to every release as `3suns-source.zip` (GNU AGPL v3)
 
-This repository holds the website and the installers. The rest of this page is for whoever maintains the site.
+This repository holds the website files and the installers. The rest of this page is for whoever maintains the site.
 
 ## The website
 
-A static site (plain HTML, CSS and JavaScript, no build step), served by GitHub Pages from the root of the
-`main` branch. It is a product demo: a live sky wheel, the workspace assembling in 3D as you scroll, a ring of
+A static site (plain HTML, CSS and JavaScript, no build step). Upload the files as they are to any web host
+or static hosting service, into the site root or any folder; every path in the site is relative. It is a
+product demo: a live sky wheel, the workspace assembling in 3D as you scroll, a ring of
 chart wheels, a 14-part feature tour, the reports, an accuracy table, the full feature list and the downloads.
 
 | Path | What it is |
@@ -29,7 +29,6 @@ chart wheels, a 14-part feature tour, the reports, an accuracy table, the full f
 | `img/t-*.webp`, `img/d-*.webp` | feature tour: the window of each feature and the detail that floats in front of it |
 | `img/s-*.webp` | small screens for the moving wall above the feature list |
 | `img/r-*.webp` | report pages |
-| `.nojekyll` | tells GitHub Pages to serve the files as they are |
 
 Every image is a capture of the real 3suns app. All charts belong to fictional people.
 
@@ -38,7 +37,7 @@ Every image is a capture of the real 3suns app. All charts belong to fictional p
 1. Create a release in this repository with the tag `v<version>` and attach the installers, the Windows
    updater files (`.sig`, `latest.json`) and `3suns-source.zip`.
 2. In `js/config.js`, set `version`, the four links in `downloads`, and `sizes`.
-3. Commit and push. GitHub Pages publishes the change within a minute or two.
+3. Commit, push, and upload the changed files to the web host.
 
 A download link left empty still shows its button; a click then explains that the file is not online yet.
 Filling in `contactEmail` shows the address in the footer and in the licence key answer of the FAQ.
@@ -48,8 +47,8 @@ Filling in `contactEmail` shows the address in the footer and in the licence key
 - The desktop app's updater reads `https://github.com/ecaglar/3suns-web/releases/latest/download/latest.json`,
   so the newest release must always carry that file.
 - Keep the source code link on the page: 3suns is released under the GNU AGPL v3.
-- After choosing a domain, change `og:image` and `og:url` in `index.html` to the new address so link previews
-  keep working.
+- Link previews (Slack, WhatsApp, X) need the full address of the preview image. Once the site has its
+  address, change `og:image` in `index.html` to `https://<address>/img/og-image.jpg`.
 
 ## Motion
 
