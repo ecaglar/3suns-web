@@ -11,7 +11,7 @@ This repository holds the website files and the installers. The rest of this pag
 
 A static site (plain HTML, CSS and JavaScript, no build step). Upload the files as they are to any web host
 or static hosting service, into the site root or any folder; every path in the site is relative. It is a
-product demo: a hero with the download buttons (Mac, Windows and a link to the other Mac build) and the
+product demo: a hero with the download buttons (Mac: Apple chip and Intel; Windows) and the
 workspace assembling in 3D as you scroll,
 a chart wheel that builds up layer by layer, a ring of the kinds of chart, a 14-part feature tour, the
 reports, an accuracy table with a live sky wheel, the full feature list and the downloads.
@@ -58,7 +58,8 @@ Filling in `contactEmail` shows the address in the footer and in the licence key
 - Visitors who ask their system for reduced motion get the same page without the scroll scenes and the loops.
 - The hero and the chart scene are pinned while they assemble. Inside a frame that is as tall as the whole
   page (some embeds), they are laid out flat instead.
-- The hero puts the download button that matches the visitor's computer first, in gold.
+- The page never guesses which chip a Mac has (a browser cannot tell). Both Mac builds are offered, and the
+  text recommends Apple chip to anyone who is not sure. The Windows button is gold for Windows visitors.
 
 ## Accuracy note
 

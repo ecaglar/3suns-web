@@ -38,19 +38,8 @@
   var isIPad = /iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
   var isMobile = /iPhone|Android/.test(ua) || isIPad;
   var os = isMobile ? "other" : /Mac/i.test(platform) || /Macintosh/.test(ua) ? "mac" : /Win/i.test(platform) || /Windows/.test(ua) ? "windows" : "other";
-  var macArch = "arm";
-  function guessMacArch() {
-    try {
-      var c = document.createElement("canvas");
-      var gl = c.getContext("webgl") || c.getContext("experimental-webgl");
-      var ext = gl && gl.getExtension("WEBGL_debug_renderer_info");
-      var r = ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)) : "";
-      if (/Intel|AMD|Radeon|NVIDIA/i.test(r)) macArch = "intel";
-    } catch (e) { /* keep Apple Silicon */ }
-  }
-  if (os === "mac") guessMacArch();
 
-  function dlKey(k) { return k === "auto" ? (os === "windows" ? "windows" : os === "mac" ? (macArch === "intel" ? "macIntel" : "macArm") : null) : k; }
+  function dlKey(k) { return k === "auto" ? (os === "windows" ? "windows" : os === "mac" ? "macArm" : null) : k; }
 
   function wireDownloads() {
     $$("[data-dl]").forEach(function (a) {
@@ -71,22 +60,17 @@
   }
 
   function heroButtons() {
-    // the hero: the button for this computer is the gold one and comes first; the other Mac build is the small link
-    var mac = $('.inst[data-os="mac"]'), win = $('.inst[data-os="windows"]'), note = $("#inst-note"), intel = os === "mac" && macArch === "intel";
-    if (mac && intel) {
-      mac.setAttribute("data-dl", "macIntel");
-      if (note) note.innerHTML = 'Mac build is for Intel. <a data-dl="macArm" href="#download">Get the Apple Silicon build</a>';
-    }
-    if (mac && win) { mac.classList.toggle("is-you", os !== "windows"); win.classList.toggle("is-you", os === "windows"); }
-    if (mac) mac.setAttribute("aria-label", "Download for Mac, " + (intel ? "Intel" : "Apple Silicon") + ", version " + (CFG.version || ""));
-    if (win) win.setAttribute("aria-label", "Download for Windows, version " + (CFG.version || ""));
+    // A website cannot tell which chip a Mac has, so there is no guess: the Mac group offers both builds and
+    // recommends Apple chip. Only a Windows visitor (which the browser does report) gets the Windows button in gold.
+    var gold = os === "windows" ? "windows" : "macArm";
+    var names = { macArm: "a Mac with an Apple chip", macIntel: "a Mac with an Intel processor", windows: "Windows 10 and 11" };
+    $$(".inst").forEach(function (a) {
+      var k = a.getAttribute("data-dl");
+      a.classList.toggle("is-you", k === gold);
+      a.setAttribute("aria-label", "Download 3suns " + (CFG.version || "") + " for " + (names[k] || k));
+    });
     var card = $('.dl-card[data-os="' + os + '"]');
     if (card) card.classList.add("is-you");
-    if (os === "mac") {
-      var pri = $('.dl-card[data-os="mac"] [data-dl="' + (macArch === "intel" ? "macIntel" : "macArm") + '"]');
-      var other = $('.dl-card[data-os="mac"] [data-dl="' + (macArch === "intel" ? "macArm" : "macIntel") + '"]');
-      if (pri && other) { pri.className = "btn btn-gold dl-btn"; other.className = "btn btn-ghost dl-btn"; pri.parentNode.insertBefore(pri, other); }
-    }
   }
   heroButtons();
   wireDownloads();
