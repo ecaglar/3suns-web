@@ -54,21 +54,18 @@
         <h1>Astrology software, <em>a generation ahead.</em></h1>
         <p class="lede">Every chart, forecast and client report in one fast window, checked to a hundredth of an arc second.</p>
         <div class="install" id="install">
-          <div class="inst-group" role="group" aria-labelledby="ig-mac">
-            <span class="inst-cap" id="ig-mac">Mac</span>
-            <div class="inst-row">
-              <a class="inst is-you" data-dl="macArm" href="#download"><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span>Apple chip</span></a>
-              <a class="inst" data-dl="macIntel" href="#download"><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span>Intel</span></a>
+          <div class="inst-split is-you" id="inst-mac">
+            <a class="inst-main" data-dl="macArm" href="#download"><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span><span class="lbl-pre">Download for </span>Mac <small>(Apple Silicon)</small></span></a>
+            <button type="button" class="inst-more" id="inst-more" aria-haspopup="menu" aria-expanded="false" aria-controls="inst-menu" aria-label="Choose the version for your Mac"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></button>
+            <div class="inst-menu" id="inst-menu" role="menu" aria-label="Mac downloads" hidden>
+              <a role="menuitem" data-dl="macArm" href="#download"><b>Apple Silicon (M1 and later)</b><span>Most Macs from 2021 on · <span data-size="macArm">93 MB</span></span><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg></a>
+              <a role="menuitem" data-dl="macIntel" href="#download"><b>Intel Processor</b><span>Older Macs · <span data-size="macIntel">95 MB</span></span><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg></a>
+              <p class="inst-menu-tip">To check, open the Apple menu and choose About This Mac.</p>
             </div>
           </div>
-          <div class="inst-group" role="group" aria-labelledby="ig-win">
-            <span class="inst-cap" id="ig-win">Windows</span>
-            <div class="inst-row">
-              <a class="inst" data-dl="windows" href="#download"><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span>Download</span></a>
-            </div>
-          </div>
+          <a class="inst" data-dl="windows" href="#download"><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span><span class="lbl-pre">Download for </span>Windows</span></a>
         </div>
-        <p class="inst-note">Not sure which Mac you have? Choose <b>Apple chip</b>, which most Macs from 2021 on have. To check, open the Apple menu and choose About This Mac.</p>
+        <p class="inst-note">Not sure which Mac you have? Choose <b>Apple Silicon</b>, the chip in most Macs from 2021 on.</p>
       </div>
       <header class="sec-head center hx-head">
         <p class="eyebrow">The workspace</p>
@@ -539,10 +536,10 @@
         <h3>macOS</h3>
         <p class="req">macOS 11 Big Sur or later</p>
         <div class="dl-buttons">
-          <a class="btn btn-gold dl-btn" data-dl="macArm" href="#download"><span class="dl-l">Apple chip</span><span class="dl-s">M1 and later · <span data-size="macArm">93 MB</span></span></a>
+          <a class="btn btn-gold dl-btn" data-dl="macArm" href="#download"><span class="dl-l">Apple Silicon</span><span class="dl-s">M1 and later · <span data-size="macArm">93 MB</span></span></a>
           <a class="btn btn-ghost dl-btn" data-dl="macIntel" href="#download"><span class="dl-l">Intel</span><span class="dl-s">older Macs · <span data-size="macIntel">95 MB</span></span></a>
         </div>
-        <p class="dl-note">Not sure which Mac you have? Choose <b>Apple chip</b>. Signed by Karia LLC and notarized by Apple. Open the .dmg and drag 3suns into Applications.</p>
+        <p class="dl-note">Not sure which Mac you have? Choose <b>Apple Silicon</b>. Signed by Karia LLC and notarized by Apple. Open the .dmg and drag 3suns into Applications.</p>
       </article>
       <article class="dl-card reveal" data-os="windows" data-tilt>
         <span class="dl-you">Your system</span>
@@ -567,7 +564,7 @@
       <h2>Before you <em>download.</em></h2>
     </header>
     <div class="faq-list">
-      <details class="reveal" open><summary>Which computers does it run on?</summary><p>Macs with an Apple chip or an Intel processor on macOS 11 Big Sur or later, and 64-bit Windows 10 or 11, which includes Windows tablets such as Microsoft Surface. There is no iPad or Android app yet.</p><p>Not sure which Mac you have? Choose <b>Apple chip</b>, which most Macs from 2021 on have. To check, open the Apple menu and choose About This Mac.</p></details>
+      <details class="reveal" open><summary>Which computers does it run on?</summary><p>Macs with Apple Silicon or an Intel processor on macOS 11 Big Sur or later, and 64-bit Windows 10 or 11, which includes Windows tablets such as Microsoft Surface. There is no iPad or Android app yet.</p><p>Not sure which Mac you have? Choose <b>Apple Silicon</b>, the chip in most Macs from 2021 on. To check, open the Apple menu and choose About This Mac.</p></details>
       <details class="reveal"><summary>Do I need a licence key?</summary><p>Yes. 3suns asks for a licence key the first time it starts, and a key works on one computer. There is nothing to sign up for. Until a key is entered you can look at charts, but you cannot create or change them or make PDFs.<span class="needs-contact" hidden> To get a key, write to <a data-contact href="#faq"></a>.</span></p></details>
       <details class="reveal"><summary>Can I bring my charts from my current program?</summary><p>Yes. Export your charts as an AAF file, the exchange format most astrology programs write, and import it into a 3suns chart file. CSV and JSON work too, and 3suns exports in the same formats.</p></details>
       <details class="reveal"><summary>Where are my charts kept?</summary><p>On your computer, in the 3suns chart database. You don't need an account.</p></details>

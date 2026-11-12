@@ -60,20 +60,44 @@
   }
 
   function heroButtons() {
-    // A website cannot tell which chip a Mac has, so there is no guess: the Mac group offers both builds and
-    // recommends Apple chip. Only a Windows visitor (which the browser does report) gets the Windows button in gold.
-    var gold = os === "windows" ? "windows" : "macArm";
-    var names = { macArm: "a Mac with an Apple chip", macIntel: "a Mac with an Intel processor", windows: "Windows 10 and 11" };
-    $$(".inst").forEach(function (a) {
-      var k = a.getAttribute("data-dl");
-      a.classList.toggle("is-you", k === gold);
-      a.setAttribute("aria-label", "Download 3suns " + (CFG.version || "") + " for " + (names[k] || k));
-    });
+    // A website cannot tell which chip a Mac has, so nothing is guessed: the Mac button downloads the Apple Silicon
+    // build and its arrow lists both builds. Only Windows (which the browser does report) moves the gold button.
+    var win = os === "windows", inst = $("#install"), mac = $("#inst-mac"), wbtn = $('#install > .inst[data-dl="windows"]');
+    if (inst) inst.classList.toggle("win-first", win);
+    if (mac) mac.classList.toggle("is-you", !win);
+    if (wbtn) wbtn.classList.toggle("is-you", win);
     var card = $('.dl-card[data-os="' + os + '"]');
     if (card) card.classList.add("is-you");
   }
   heroButtons();
   wireDownloads();
+
+  /* ---------- the arrow on the Mac button: a small menu with both Mac builds ---------- */
+  var macSplit = $("#inst-mac"), macMore = $("#inst-more"), macList = $("#inst-menu");
+  function macMenu(on, focusFirst) {
+    if (!macSplit || !macMore || !macList || macList.hidden === !on) return;
+    macList.hidden = !on;
+    macMore.setAttribute("aria-expanded", on ? "true" : "false");
+    macSplit.classList.toggle("open", on);
+    if (on && focusFirst) { var f = $("a", macList); if (f) f.focus(); }
+  }
+  if (macSplit && macMore && macList) {
+    macMore.addEventListener("click", function (e) { macMenu(macList.hidden, e.detail === 0); });
+    document.addEventListener("click", function (e) { if (!macSplit.contains(e.target)) macMenu(false); });
+    macSplit.addEventListener("keydown", function (e) {
+      var items = $$("a", macList), i = items.indexOf(document.activeElement);
+      if (e.key === "Escape" && !macList.hidden) { macMenu(false); macMore.focus(); }
+      else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        if (e.target !== macMore && i < 0) return;
+        e.preventDefault();
+        macMenu(true);
+        var n = i < 0 ? (e.key === "ArrowDown" ? 0 : items.length - 1) : (i + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length;
+        items[n].focus();
+      }
+    });
+    $$("a", macList).forEach(function (a) { a.addEventListener("click", function () { macMenu(false); }); });
+    macSplit.addEventListener("focusout", function (e) { if (e.relatedTarget && !macSplit.contains(e.relatedTarget)) macMenu(false); });
+  }
 
   /* ---------- glyphs in the speculum table ---------- */
   $$(".gl[data-glyph]").forEach(function (e) { if (window.inlineGlyph) e.innerHTML = window.inlineGlyph(e.getAttribute("data-glyph"), e.classList.contains("s") ? 12 : 14); });
@@ -230,6 +254,7 @@
       var p = easeInOut(clamp(t / 0.2, 0, 1));
       ex.style.setProperty("--p", p.toFixed(4));
       ex.classList.toggle("copy-off", p > 0.55);
+      if (p > 0.3) macMenu(false);
     }
   });
   var layerScene = makeScene($("#charts"), $("#l-stage"), $("#l-win"), ".l-layer", "#l-steps li", {
