@@ -13,14 +13,14 @@
 window.THREESUNS = {
   version: "0.4.1",
   downloads: {
-    macArm: "",
-    macIntel: "",
-    windows: "",
-    source: ""
+    macArm: "https://github.com/ecaglar/3suns-web/releases/download/v0.4.1/3suns_0.4.1_aarch64.dmg",
+    macIntel: "https://github.com/ecaglar/3suns-web/releases/download/v0.4.1/3suns_0.4.1_x64.dmg",
+    windows: "https://github.com/ecaglar/3suns-web/releases/download/v0.4.1/3suns_0.4.1_x64-setup.exe",
+    source: "https://github.com/ecaglar/3suns-web/releases/download/v0.4.1/3suns-source.zip"
   },
   sizes: {
-    macArm: "about 90 MB",
-    macIntel: "about 90 MB",
+    macArm: "93 MB",
+    macIntel: "95 MB",
     windows: "62 MB"
   },
   // Optional contact address, shown in the footer when filled in, e.g. "hello@3suns.app".
