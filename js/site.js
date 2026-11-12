@@ -71,22 +71,12 @@
   }
 
   function heroButtons() {
-    var p = $("#cta-primary");
-    if (!p) return;
-    var main = $(".cta-main", p), sub = $(".cta-sub", p);
-    var v = CFG.version ? "version " + CFG.version : "";
-    if (os === "mac") {
-      main.textContent = "Download for Mac";
-      sub.textContent = (macArch === "intel" ? "Intel" : "Apple Silicon") + " · " + v;
-    } else if (os === "windows") {
-      main.textContent = "Download for Windows";
-      sub.textContent = "64-bit installer · " + v;
-    } else {
-      p.setAttribute("data-dl", "none");
-      p.href = "#download";
-      main.textContent = "Download 3suns";
-      sub.textContent = "for Mac and Windows · " + v;
-    }
+    var you = os === "mac" ? (macArch === "intel" ? "macIntel" : "macArm") : os === "windows" ? "windows" : null;
+    $$(".inst").forEach(function (a) {
+      var b = $(".inst-t b", a), i = $(".inst-t i", a);
+      a.classList.toggle("is-you", a.getAttribute("data-dl") === you);
+      a.setAttribute("aria-label", "Download 3suns " + (CFG.version || "") + " for " + (b ? b.textContent : "") + ", " + (i ? i.textContent : ""));
+    });
     var card = $('.dl-card[data-os="' + os + '"]');
     if (card) card.classList.add("is-you");
     if (os === "mac") {
@@ -146,8 +136,8 @@
     }
   }
 
-  /* ---------- hero: the sky wheel tilts with the pointer and lies back as you scroll ---------- */
-  var tiltEl = $("#sky-tilt"), hero = $(".hero");
+  /* ---------- the live sky wheel tilts with the pointer ---------- */
+  var tiltEl = $("#sky-tilt"), hero = $("#live");
   if (tiltEl && hero) {
     var BASE = { rx: 16, ry: -18 };
     var cur = reduce ? { rx: BASE.rx, ry: BASE.ry } : { rx: 62, ry: -46 };
@@ -159,8 +149,7 @@
     setTilt();
     var heroFrame = function (t) {
       if (!heroOn) { heroLoop = false; return; }
-      var sc = clamp((window.scrollY || 0) / 700, 0, 1);
-      var trx = BASE.rx - my * 10 + Math.sin(t / 2600) * 2.2 + sc * 24;
+      var trx = BASE.rx - my * 10 + Math.sin(t / 2600) * 2.2;
       var tryy = BASE.ry + mx * 16 + Math.cos(t / 3400) * 3.2;
       cur.rx += (trx - cur.rx) * 0.055; cur.ry += (tryy - cur.ry) * 0.055;
       setTilt();
@@ -203,39 +192,104 @@
     });
   }
 
-  /* ---------- workspace: floating layers settle into one window as you scroll ---------- */
-  var ex = $("#app"), xstage = $("#x-stage"), xwin = $("#x-win");
+  /* ---------- pinned scenes: floating layers settle into one piece as you scroll ---------- */
   var noPin = window.innerHeight > Math.max(screen.width || 0, screen.height || 0) * 1.6;
   if (noPin) document.documentElement.classList.add("no-pin");
-  var layers = xwin ? $$(".x-layer", xwin) : [], steps = $$("#x-steps li");
-  layers.forEach(function (l) {
+  // a layer is a cut-out of one 1600 x 1000 screenshot: data-rect = x,y,w,h
+  function cutLayer(l) {
     var r = l.getAttribute("data-rect").split(",").map(Number), x = r[0], y = r[1], w = r[2], h = r[3];
     l.style.left = (x / 16) + "%"; l.style.top = (y / 10) + "%";
     l.style.width = (w / 16) + "%"; l.style.height = (h / 10) + "%";
     l.style.backgroundSize = (1600 / w * 100) + "% " + (1000 / h * 100) + "%";
     l.style.backgroundPosition = (w < 1600 ? x / (1600 - w) * 100 : 0) + "% " + (h < 1000 ? y / (1000 - h) * 100 : 0) + "%";
-    l.style.setProperty("--z", l.getAttribute("data-z"));
-    l._d = parseFloat(l.getAttribute("data-d")) || 0;
-    l._s = l.getAttribute("data-step");
-  });
-  function xUnit() { if (xwin) xwin.style.setProperty("--u", (xwin.offsetWidth / 100).toFixed(2) + "px"); }
-  function xUpdate() {
-    if (!ex || !xstage) return;
-    var a = 1;
-    if (!reduce && !noPin) {
-      var r = ex.getBoundingClientRect(), total = Math.max(1, r.height - window.innerHeight);
-      a = clamp(clamp(-r.top / total, 0, 1) / 0.8, 0, 1);
-    }
-    xstage.style.setProperty("--e", (1 - easeInOut(a)).toFixed(4));
-    var landed = [0, 0, 0, 0];
-    layers.forEach(function (l) {
-      var q = clamp((a - 0.14 - l._d * 0.7) / 0.6, 0, 1);
-      l.style.setProperty("--k", (1 - easeInOut(q)).toFixed(4));
-      if (l._s !== null && q > 0.5) landed[+l._s] = 1;
-    });
-    steps.forEach(function (s, i) { s.classList.toggle("on", !!landed[i]); });
-    ex.classList.toggle("done", a >= 0.995);
   }
+  function makeScene(sec, stage, win, layerSel, stepsSel, o) {
+    if (!sec || !stage || !win) return { update: function () {}, unit: function () {} };
+    var ls = $$(layerSel, win), st = $$(stepsSel);
+    ls.forEach(function (l) {
+      if (l.hasAttribute("data-rect")) cutLayer(l);
+      l.style.setProperty("--z", l.getAttribute("data-z"));
+      l._d = parseFloat(l.getAttribute("data-d")) || 0;
+      l._s = l.getAttribute("data-step");
+    });
+    return {
+      unit: function () { win.style.setProperty("--u", (win.offsetWidth / 100).toFixed(2) + "px"); },
+      update: function () {
+        var t = 1;
+        if (!reduce && !noPin) {
+          var r = sec.getBoundingClientRect(), total = Math.max(1, r.height - window.innerHeight);
+          t = clamp(-r.top / total, 0, 1);
+        }
+        var a = clamp((t - o.start) / o.span, 0, 1);
+        // the whole piece lies back in space, and straightens between o.tilt[0] and o.tilt[1]
+        stage.style.setProperty("--e", (1 - easeInOut(clamp((a - o.tilt[0]) / (o.tilt[1] - o.tilt[0]), 0, 1))).toFixed(4));
+        var landed = [];
+        ls.forEach(function (l) {
+          var q = clamp((a - o.lead - l._d * o.spread) / o.land, 0, 1);
+          l.style.setProperty("--k", (1 - easeInOut(q)).toFixed(4));
+          if (l._s !== null && q > 0.5) landed[+l._s] = 1;
+          if (o.mark) l.classList.toggle("is-new", q > 0.03 && q < 0.97);
+        });
+        st.forEach(function (x, i) { x.classList.toggle("on", !!landed[i]); });
+        sec.classList.toggle("done", a >= 0.995);
+        if (o.onT) o.onT(t);
+      }
+    };
+  }
+  var ex = $("#top"), xstage = $("#x-stage"), hxCopy = $("#hx-copy");
+  var heroScene = makeScene(ex, xstage, $("#x-win"), ".x-layer", "#x-steps li", {
+    start: 0.1, span: 0.7, tilt: [0, 1], lead: 0.14, spread: 0.7, land: 0.6,
+    onT: function (t) {
+      var p = easeInOut(clamp(t / 0.2, 0, 1));
+      ex.style.setProperty("--p", p.toFixed(4));
+      ex.classList.toggle("copy-off", p > 0.55);
+    }
+  });
+  var layerScene = makeScene($("#charts"), $("#l-stage"), $("#l-win"), ".l-layer", "#l-steps li", {
+    start: 0.03, span: 0.85, tilt: [0.74, 1], lead: 0.03, spread: 1, land: 0.2, mark: true
+  });
+  // where the product sits while the hero copy is on screen: beside it on a wide window, below it on a narrow one
+  function pageX(el) { var x = 0; while (el) { x += el.offsetLeft; el = el.offsetParent; } return x; }
+  function heroPlace() {
+    if (!ex || !xstage || !hxCopy) return;
+    var sx = 0, sy = 0, ss = 0.1;
+    if (window.innerWidth > 900) {
+      // the exploded product is about 0.9 of the window wide: fit it between the copy and the right edge
+      var W = xstage.offsetWidth, cx = pageX(xstage) + W / 2, right = window.innerWidth - 16, cr = 0;
+      $$("#hx-copy > *").forEach(function (c) { cr = Math.max(cr, c.offsetLeft + c.offsetWidth); });
+      var avail = right - (cr + pageX(hxCopy)) + W * 0.02;
+      var s = clamp(avail / (W * 0.897), 0.7, Math.min(1.2, (window.innerHeight - 108) / (W * 0.628)));
+      var left = right - W * 0.897 * s - Math.max(0, avail - W * 0.897 * s) / 2;
+      sx = left + W * 0.4615 * s - cx; sy = window.innerHeight * 0.02; ss = s - 1;
+    }
+    else { sy = hxCopy.offsetTop + hxCopy.offsetHeight + xstage.offsetWidth * 0.13 - xstage.offsetTop; ss = 0.16; }
+    ex.style.setProperty("--sx", sx.toFixed(1) + "px");
+    ex.style.setProperty("--sy", sy.toFixed(1) + "px");
+    ex.style.setProperty("--ss", String(ss));
+  }
+  function scenesUnit() { heroScene.unit(); layerScene.unit(); heroPlace(); }
+  function xUpdate() { heroScene.update(); layerScene.update(); }
+
+  /* ---------- feature tour: every window is cut into floating layers ---------- */
+  var CUT = {
+    base: [[0, 972, 1600, 28, 3, 0.34], [0, 0, 1600, 46, 5, 0.27], [0, 46, 76, 926, 8, 0.2], [76, 46, 300, 926, 12, 0.12]],
+    plain: [[376, 46, 1224, 926, 18, 0, 1]],
+    chart: [[376, 46, 864, 926, 16, 0.05, 1], [1240, 46, 360, 926, 21, 0]]
+  };
+  $$(".panel").forEach(function (p) {
+    var win = $(".win", p), img = win && $("img", win);
+    if (!img) return;
+    CUT.base.concat(CUT[p.getAttribute("data-cut") || "plain"]).forEach(function (c) {
+      var l = document.createElement("div");
+      l.className = "wl" + (c[6] ? " main" : "");
+      l.setAttribute("data-rect", c.slice(0, 4).join(","));
+      cutLayer(l);
+      l.style.backgroundImage = 'url("' + img.getAttribute("src") + '")';
+      l.style.setProperty("--z", c[4]);
+      l.style.setProperty("--d", c[5]);
+      win.appendChild(l);
+    });
+  });
   $$("[data-theme-shot]").forEach(function (b) {
     b.addEventListener("click", function () {
       var t = b.getAttribute("data-theme-shot");
@@ -270,8 +324,10 @@
     requestAnimationFrame(function () { onScrollNav(); xUpdate(); wallUpdate(); ticking = false; });
   }
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", function () { xUnit(); ringLayout(); onScroll(); });
-  xUnit(); onScrollNav(); xUpdate(); wallUpdate();
+  window.addEventListener("resize", function () { scenesUnit(); ringLayout(); onScroll(); });
+  scenesUnit(); onScrollNav(); xUpdate(); wallUpdate();
+  window.addEventListener("load", function () { scenesUnit(); xUpdate(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { scenesUnit(); xUpdate(); });
 
   /* ---------- chart types: a ring of wheels you can spin ---------- */
   var ringStage = $("#ring-stage"), ring = $("#ring"), ringCap = $("#ring-cap");

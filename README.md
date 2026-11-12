@@ -11,20 +11,22 @@ This repository holds the website files and the installers. The rest of this pag
 
 A static site (plain HTML, CSS and JavaScript, no build step). Upload the files as they are to any web host
 or static hosting service, into the site root or any folder; every path in the site is relative. It is a
-product demo: a live sky wheel, the workspace assembling in 3D as you scroll, a ring of
-chart wheels, a 14-part feature tour, the reports, an accuracy table, the full feature list and the downloads.
+product demo: a hero with the three install buttons and the workspace assembling in 3D as you scroll,
+a chart wheel that builds up layer by layer, a ring of the kinds of chart, a 14-part feature tour, the
+reports, an accuracy table with a live sky wheel, the full feature list and the downloads.
 
 | Path | What it is |
 |---|---|
 | `index.html` | the page |
 | `css/site.css` | all styles; colours and fonts are the tokens at the top |
 | `js/config.js` | **the only file to edit per release**: version, download links, file sizes, optional contact email |
-| `js/site.js` | navigation, OS detection for the download buttons, the 3D scenes (hero tilt, workspace, ring of wheels, tour, wall, report fan), reveals |
-| `js/sky.js` | the live "sky right now" chart wheel in the hero, and the starfield |
+| `js/site.js` | navigation, OS detection for the install buttons, the 3D scenes (hero and workspace, chart in layers, ring of wheels, tour windows, wall, report fan), reveals |
+| `js/sky.js` | the live "sky right now" chart wheel in the Accuracy section, and the starfield |
 | `js/astronomy.browser.min.js` | Astronomy Engine 2.1.19 (MIT licence, header kept), used only by the live wheel |
 | `js/glyphs.js` | the astrology glyph outlines the app itself uses (from DejaVu Sans) |
 | `fonts/` | Cormorant Garamond and Inter, self-hosted (SIL Open Font License files next to them) |
 | `img/app-*.webp` | the workspace in the night and paper themes (the window that assembles on scroll) |
+| `img/l-*.webp` | one multiwheel as six transparent layers (zodiac, houses, planets, aspects, progressions, transits) for the chart scene |
 | `img/w-*.webp` | the 14 chart wheels of the ring |
 | `img/t-*.webp`, `img/d-*.webp` | feature tour: the window of each feature and the detail that floats in front of it |
 | `img/s-*.webp` | small screens for the moving wall above the feature list |
@@ -52,9 +54,10 @@ Filling in `contactEmail` shows the address in the footer and in the licence key
 
 ## Motion
 
-- Visitors who ask their system for reduced motion get the same page without the scroll scene and the loops.
-- The workspace scene is pinned while it assembles. Inside a frame that is as tall as the whole page (some
-  embeds), it is laid out flat instead.
+- Visitors who ask their system for reduced motion get the same page without the scroll scenes and the loops.
+- The hero and the chart scene are pinned while they assemble. Inside a frame that is as tall as the whole
+  page (some embeds), they are laid out flat instead.
+- The hero highlights the install button that matches the visitor's computer.
 
 ## Accuracy note
 

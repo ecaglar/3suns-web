@@ -43,63 +43,31 @@
 
 <main id="main">
 
-<!-- HERO: the sky right now, in layers -->
-<section class="hero" id="top">
-  <div class="suns" aria-hidden="true"><span class="sun s1"></span><span class="sun s2"></span><span class="sun s3"></span></div>
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="pill"><span class="pulse" aria-hidden="true"></span><span>Version <span data-version>0.4.1</span> for Mac and Windows</span></p>
-      <h1>Professional astrology, <em>on your Mac, Windows or tablet.</em></h1>
-      <p class="lede">Charts, forecasts, traditional timing, astro-mapping, Vedic charts and written client reports in one fast, modern program, built together with a working astrologer. Every position comes from the Swiss Ephemeris and is checked to a hundredth of an arc second.</p>
-      <div class="cta-row">
-        <a class="btn btn-gold btn-lg" id="cta-primary" href="#download" data-dl="auto">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>
-          <span class="cta-text"><span class="cta-main">Download 3suns</span><span class="cta-sub">Mac and Windows</span></span>
-        </a>
-        <a class="btn btn-ghost btn-lg" id="cta-secondary" href="#app">See it in action</a>
-      </div>
-      <p class="fine">Runs on your own computer. Your charts stay with you.</p>
-    </div>
-    <figure class="sky" id="sky">
-      <div class="sky-stage">
-        <div class="sky-tilt" id="sky-tilt">
-          <div class="sky-layer sky-back" aria-hidden="true"><span class="halo"></span><span class="orbit-line o1"></span><span class="orbit-line o2"></span></div>
-          <svg id="wheel" class="sky-layer sky-base" viewBox="0 0 640 640" role="img" aria-labelledby="sky-cap"></svg>
-          <svg id="wheel-asp" class="sky-layer sky-asp" viewBox="0 0 640 640" aria-hidden="true"></svg>
-          <svg id="wheel-pl" class="sky-layer sky-pl" viewBox="0 0 640 640"></svg>
-          <div class="sky-layer sky-front" aria-hidden="true">
-            <span class="chip3d c-sun" id="sun-ticker"></span>
-            <span class="chip3d c-moon" id="moon-ticker"></span>
-          </div>
-        </div>
-        <div class="sky-tip" role="status" hidden></div>
-      </div>
-      <figcaption id="sky-cap">
-        <span class="sky-line"><span class="live" aria-hidden="true"></span>The sky right now <span class="sep" aria-hidden="true">·</span> <time id="sky-time"></time></span>
-        <span class="sky-line hint-line">Calculated live in your browser. Move over a planet.</span>
-      </figcaption>
-    </figure>
-  </div>
-
-  <div class="wrap">
-    <dl class="specs" aria-label="3suns in numbers">
-      <div class="spec"><dt>Positions checked to</dt><dd><span class="count" data-to="0.01" data-dec="2">0.01</span>″</dd></div>
-      <div class="spec"><dt>To cast a natal chart</dt><dd><span class="count" data-to="0.03" data-dec="2">0.03</span> s</dd></div>
-      <div class="spec"><dt>Kinds of chart</dt><dd><span class="count" data-to="16">16</span></dd></div>
-      <div class="spec"><dt>House systems</dt><dd><span class="count" data-to="11">11</span></dd></div>
-      <div class="spec"><dt>Fixed stars with parans</dt><dd><span class="count" data-to="49">49</span></dd></div>
-    </dl>
-  </div>
-</section>
-
-<!-- WORKSPACE: the window comes together as you scroll -->
-<section class="explode" id="app">
+<!-- HERO + WORKSPACE: the product in floating layers; it comes together as you scroll -->
+<section class="explode hero-x" id="top">
+  <span class="hx-anchor" id="app" aria-hidden="true"></span>
   <div class="explode-pin">
+    <div class="suns" aria-hidden="true"><span class="sun s1"></span><span class="sun s2"></span><span class="sun s3"></span></div>
     <div class="wrap explode-in">
-      <header class="sec-head center">
+      <div class="hx-copy" id="hx-copy">
+        <p class="pill"><span class="pulse" aria-hidden="true"></span><span>Version <span data-version>0.4.1</span> for Mac and Windows</span></p>
+        <h1>Professional astrology <em>for Mac and Windows.</em></h1>
+        <p class="lede">Every chart, forecast and client report in one window, checked to a hundredth of an arc second.</p>
+        <div class="install" id="install" role="group" aria-label="Download 3suns">
+          <a class="inst" data-dl="macArm" href="#download"><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span class="inst-t"><b>Mac</b><i>Apple Silicon</i></span></a>
+          <a class="inst" data-dl="macIntel" href="#download"><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span class="inst-t"><b>Mac</b><i>Intel</i></span></a>
+          <a class="inst" data-dl="windows" href="#download"><svg class="inst-dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><span class="inst-t"><b>Windows</b><i>10 and 11</i></span></a>
+        </div>
+        <ul class="hx-values">
+          <li>16 kinds of chart</li>
+          <li>Forecasts and timing</li>
+          <li>Written client reports</li>
+          <li>Astro-maps and Vedic</li>
+        </ul>
+      </div>
+      <header class="sec-head center hx-head">
         <p class="eyebrow">The workspace</p>
         <h2>One window for the <em>whole consultation.</em></h2>
-        <p class="x-lede">Scroll, and the workspace comes together: your clients, the chart, and everything about it.</p>
       </header>
       <div class="x-stage" id="x-stage" data-shot="night">
         <div class="x-win" id="x-win">
@@ -126,35 +94,85 @@
           <button type="button" class="ts-btn" data-theme-shot="paper" aria-pressed="false"><span class="ts-dot paper" aria-hidden="true"></span>Paper</button>
         </div>
       </div>
+      <p class="hx-hint" aria-hidden="true"><span></span>Scroll to put it together</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3suns in numbers -->
+<section class="specs-band">
+  <div class="wrap">
+    <dl class="specs" aria-label="3suns in numbers">
+      <div class="spec"><dt>Positions checked to</dt><dd><span class="count" data-to="0.01" data-dec="2">0.01</span>″</dd></div>
+      <div class="spec"><dt>To cast a natal chart</dt><dd><span class="count" data-to="0.03" data-dec="2">0.03</span> s</dd></div>
+      <div class="spec"><dt>Kinds of chart</dt><dd><span class="count" data-to="16">16</span></dd></div>
+      <div class="spec"><dt>House systems</dt><dd><span class="count" data-to="11">11</span></dd></div>
+      <div class="spec"><dt>Fixed stars with parans</dt><dd><span class="count" data-to="49">49</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- CHARTS: one wheel, built up layer by layer -->
+<section class="explode layers" id="charts">
+  <div class="explode-pin">
+    <div class="wrap explode-in">
+      <header class="sec-head center">
+        <p class="eyebrow">Charts</p>
+        <h2>Sixteen kinds of chart, <em>one wheel.</em></h2>
+        <p class="x-lede">Scroll: a natal chart builds up layer by layer, then progressions and transits join it as a second and a third wheel.</p>
+      </header>
+      <div class="x-stage l-stage" id="l-stage">
+        <div class="x-win l-win" id="l-win">
+          <div class="l-layer" data-z="0" data-d="0" data-step="0"><img src="img/l-zodiac.webp" width="960" height="960" alt="A chart wheel of a fictional client that builds up in layers: the zodiac, the houses, the natal planets, the aspects, then a wheel of progressions and a wheel of transits" loading="lazy"></div>
+          <div class="l-layer" data-z="9" data-d="0.02" data-step="1"><img src="img/l-houses.webp" width="960" height="960" alt="" loading="lazy"></div>
+          <div class="l-layer" data-z="18" data-d="0.15" data-step="2"><img src="img/l-natal.webp" width="960" height="960" alt="" loading="lazy"></div>
+          <div class="l-layer" data-z="27" data-d="0.28" data-step="3"><img src="img/l-aspects.webp" width="960" height="960" alt="" loading="lazy"></div>
+          <div class="l-layer" data-z="38" data-d="0.42" data-step="4"><img src="img/l-ring2.webp" width="960" height="960" alt="" loading="lazy"></div>
+          <div class="l-layer" data-z="49" data-d="0.56" data-step="5"><img src="img/l-ring3.webp" width="960" height="960" alt="" loading="lazy"></div>
+        </div>
+        <div class="x-glow" aria-hidden="true"></div>
+      </div>
+      <div class="x-foot">
+        <ol class="x-steps six" id="l-steps">
+          <li><b>Zodiac</b><span>Tropical or sidereal.</span></li>
+          <li><b>Houses</b><span>Eleven house systems.</span></li>
+          <li><b>Planets</b><span>With nodes and asteroids.</span></li>
+          <li><b>Aspects</b><span>Major and minor.</span></li>
+          <li><b>Progressions</b><span>A second wheel.</span></li>
+          <li><b>Transits</b><span>A third wheel: today's sky.</span></li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CHART TYPES: a ring of wheels -->
-<section class="orbit" id="charts">
+<section class="orbit" id="kinds">
   <div class="wrap">
     <header class="sec-head center reveal">
-      <p class="eyebrow">Charts</p>
-      <h2>Sixteen kinds of chart, <em>one wheel.</em></h2>
-      <p>Switch the same client from natal to transits, progressions, returns or a relationship chart with one click. Drag the ring to look around.</p>
+      <h2 class="h-sub">Every kind is <em>one click away.</em></h2>
+      <p>Switch the same client from natal to transits, progressions, returns or a relationship chart. Drag the ring to look around.</p>
+      <ul class="fam-key" aria-label="Kinds of chart">
+        <li class="fam-natal">Birth chart</li><li class="fam-time">Forecast</li><li class="fam-rel">Relationship</li><li class="fam-ret">Return</li><li class="fam-other">Special</li><li class="fam-style">Wheel style</li>
+      </ul>
     </header>
   </div>
   <div class="ring-stage" id="ring-stage">
     <ul class="ring" id="ring">
-      <li class="wcard" data-name="Natal" data-desc="The birth chart, in any of 11 house systems, tropical or sidereal."><img src="img/w-natal.webp" width="720" height="720" alt="Natal chart wheel" loading="lazy"><span>Natal</span></li>
-      <li class="wcard" data-name="Transits" data-desc="Today's sky around the natal chart. Step or play it through time."><img src="img/w-transits.webp" width="720" height="720" alt="Natal chart with a ring of transits" loading="lazy"><span>Transits</span></li>
-      <li class="wcard" data-name="Progressions" data-desc="Secondary, tertiary, minor or your own rate, around the natal chart."><img src="img/w-progressed.webp" width="720" height="720" alt="Natal chart with a ring of secondary progressions" loading="lazy"><span>Progressions</span></li>
-      <li class="wcard" data-name="Solar arc" data-desc="Solar arc, Naibod, one-degree, Ascendant and Vertex arc directions, with converse."><img src="img/w-solar-arc.webp" width="720" height="720" alt="Natal chart with a ring of solar arc directions" loading="lazy"><span>Solar arc</span></li>
-      <li class="wcard" data-name="Multiwheel" data-desc="Natal, progressed and transiting planets together, each ring in its own colour."><img src="img/w-multiwheel.webp" width="720" height="720" alt="A three-ring multiwheel" loading="lazy"><span>Multiwheel</span></li>
-      <li class="wcard" data-name="Synastry" data-desc="Two people on one wheel, with every cross-aspect drawn and listed."><img src="img/w-synastry.webp" width="720" height="720" alt="Synastry biwheel of two fictional people" loading="lazy"><span>Synastry</span></li>
-      <li class="wcard" data-name="Composite" data-desc="The midpoint chart of a relationship."><img src="img/w-composite.webp" width="720" height="720" alt="Composite chart wheel" loading="lazy"><span>Composite</span></li>
-      <li class="wcard" data-name="Davison" data-desc="The relationship chart for the midpoint in time and place."><img src="img/w-davison.webp" width="720" height="720" alt="Davison chart wheel" loading="lazy"><span>Davison</span></li>
-      <li class="wcard" data-name="Solar return" data-desc="The chart of the Sun's return, for any year and any place."><img src="img/w-solar-return.webp" width="720" height="720" alt="Solar return chart wheel" loading="lazy"><span>Solar return</span></li>
-      <li class="wcard" data-name="Lunar return" data-desc="The Moon's return, month by month. Planet returns work the same way."><img src="img/w-lunar-return.webp" width="720" height="720" alt="Lunar return chart around the natal chart" loading="lazy"><span>Lunar return</span></li>
-      <li class="wcard" data-name="Harmonic" data-desc="Any harmonic of the chart. This is the fifth."><img src="img/w-harmonic.webp" width="720" height="720" alt="Fifth harmonic chart wheel" loading="lazy"><span>Harmonic</span></li>
-      <li class="wcard" data-name="Heliocentric" data-desc="The same moment as seen from the Sun."><img src="img/w-heliocentric.webp" width="720" height="720" alt="Heliocentric chart wheel" loading="lazy"><span>Heliocentric</span></li>
-      <li class="wcard" data-name="Classic style" data-desc="A rainbow zodiac, a colour for each planet and aspect glyphs on the lines. One of eight built-in styles."><img src="img/w-classic.webp" width="720" height="720" alt="Natal chart in the Classic style with a rainbow zodiac" loading="lazy"><span>Classic style</span></li>
-      <li class="wcard light" data-name="Black and white" data-desc="A clean mono wheel that prints well on any printer."><img src="img/w-mono.webp" width="720" height="720" alt="Natal chart in black and white for print" loading="lazy"><span>Black and white</span></li>
+      <li class="wcard fam-natal" data-name="Natal" data-desc="The birth chart, in any of 11 house systems, tropical or sidereal."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Birth chart · 1 wheel</em><img src="img/w-natal.webp" width="720" height="720" alt="Natal chart wheel" loading="lazy"><span>Natal</span></li>
+      <li class="wcard fam-time" data-name="Transits" data-desc="Today's sky around the natal chart. Step or play it through time."><em class="wc-tag"><i class="rings r2" aria-hidden="true"></i>Forecast · 2 wheels</em><img src="img/w-transits.webp" width="720" height="720" alt="Natal chart with a ring of transits" loading="lazy"><span>Transits</span></li>
+      <li class="wcard fam-time" data-name="Progressions" data-desc="Secondary, tertiary, minor or your own rate, around the natal chart."><em class="wc-tag"><i class="rings r2" aria-hidden="true"></i>Forecast · 2 wheels</em><img src="img/w-progressed.webp" width="720" height="720" alt="Natal chart with a ring of secondary progressions" loading="lazy"><span>Progressions</span></li>
+      <li class="wcard fam-time" data-name="Solar arc" data-desc="Solar arc, Naibod, one-degree, Ascendant and Vertex arc directions, with converse."><em class="wc-tag"><i class="rings r2" aria-hidden="true"></i>Forecast · 2 wheels</em><img src="img/w-solar-arc.webp" width="720" height="720" alt="Natal chart with a ring of solar arc directions" loading="lazy"><span>Solar arc</span></li>
+      <li class="wcard fam-time" data-name="Multiwheel" data-desc="Natal, progressed and transiting planets together, each ring in its own colour."><em class="wc-tag"><i class="rings r3" aria-hidden="true"></i>Forecast · 3 wheels</em><img src="img/w-multiwheel.webp" width="720" height="720" alt="A three-ring multiwheel" loading="lazy"><span>Multiwheel</span></li>
+      <li class="wcard fam-rel" data-name="Synastry" data-desc="Two people on one wheel, with every cross-aspect drawn and listed."><em class="wc-tag"><i class="rings r2" aria-hidden="true"></i>Relationship · 2 wheels</em><img src="img/w-synastry.webp" width="720" height="720" alt="Synastry biwheel of two fictional people" loading="lazy"><span>Synastry</span></li>
+      <li class="wcard fam-rel" data-name="Composite" data-desc="The midpoint chart of a relationship."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Relationship · 1 wheel</em><img src="img/w-composite.webp" width="720" height="720" alt="Composite chart wheel" loading="lazy"><span>Composite</span></li>
+      <li class="wcard fam-rel" data-name="Davison" data-desc="The relationship chart for the midpoint in time and place."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Relationship · 1 wheel</em><img src="img/w-davison.webp" width="720" height="720" alt="Davison chart wheel" loading="lazy"><span>Davison</span></li>
+      <li class="wcard fam-ret" data-name="Solar return" data-desc="The chart of the Sun's return, for any year and any place."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Return · 1 wheel</em><img src="img/w-solar-return.webp" width="720" height="720" alt="Solar return chart wheel" loading="lazy"><span>Solar return</span></li>
+      <li class="wcard fam-ret" data-name="Lunar return" data-desc="The Moon's return, month by month. Planet returns work the same way."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Return · 1 wheel</em><img src="img/w-lunar-return.webp" width="720" height="720" alt="Lunar return chart wheel" loading="lazy"><span>Lunar return</span></li>
+      <li class="wcard fam-other" data-name="Harmonic" data-desc="Any harmonic of the chart. This is the fifth."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Special · 1 wheel</em><img src="img/w-harmonic.webp" width="720" height="720" alt="Fifth harmonic chart wheel" loading="lazy"><span>Harmonic</span></li>
+      <li class="wcard fam-other" data-name="Heliocentric" data-desc="The same moment as seen from the Sun."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Special · 1 wheel</em><img src="img/w-heliocentric.webp" width="720" height="720" alt="Heliocentric chart wheel" loading="lazy"><span>Heliocentric</span></li>
+      <li class="wcard fam-style" data-name="Classic style" data-desc="A rainbow zodiac, a colour for each planet and aspect glyphs on the lines. One of eight built-in styles."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Wheel style · 1 wheel</em><img src="img/w-classic.webp" width="720" height="720" alt="Natal chart in the Classic style with a rainbow zodiac" loading="lazy"><span>Classic style</span></li>
+      <li class="wcard light fam-style" data-name="Black and white" data-desc="A clean mono wheel that prints well on any printer."><em class="wc-tag"><i class="rings r1" aria-hidden="true"></i>Wheel style · 1 wheel</em><img src="img/w-mono.webp" width="720" height="720" alt="Natal chart in black and white for print" loading="lazy"><span>Black and white</span></li>
     </ul>
     <div class="ring-floor" aria-hidden="true"></div>
   </div>
@@ -193,7 +211,7 @@
       </div>
 
       <div class="tour-stage" id="tour-stage">
-        <article class="panel is-on" role="tabpanel" id="panel-transits" aria-labelledby="tab-transits">
+        <article class="panel is-on" role="tabpanel" id="panel-transits" aria-labelledby="tab-transits" data-cut="chart">
           <div class="scene" data-tilt>
             <div class="scene-in">
               <div class="win"><img src="img/t-transits.webp" width="1920" height="1200" alt="The natal chart of a fictional client with today's transits around it, the contacts in orb listed on the right and the time slider below" loading="lazy"></div>
@@ -206,7 +224,7 @@
             <ul class="chips"><li>Hour, day, month and year steps</li><li>Play and pause</li><li>Contacts in orb</li><li>Life events</li><li>Swap inner and outer</li></ul>
           </div>
         </article>
-        <article class="panel" role="tabpanel" id="panel-synastry" aria-labelledby="tab-synastry" hidden>
+        <article class="panel" role="tabpanel" id="panel-synastry" aria-labelledby="tab-synastry" data-cut="chart" hidden>
           <div class="scene" data-tilt>
             <div class="scene-in">
               <div class="win"><img src="img/t-synastry.webp" width="1920" height="1200" alt="A synastry biwheel of two fictional people with both sets of positions and their contacts on the right" loading="lazy"></div>
@@ -323,7 +341,7 @@
             <ul class="chips"><li>Signs and houses</li><li>Aspects</li><li>Retrogrades</li><li>Angles</li><li>Moon phase and void Moon</li><li>Planetary hours</li><li>Dignities</li></ul>
           </div>
         </article>
-        <article class="panel" role="tabpanel" id="panel-reading" aria-labelledby="tab-reading" hidden>
+        <article class="panel" role="tabpanel" id="panel-reading" aria-labelledby="tab-reading" data-cut="chart" hidden>
           <div class="scene" data-tilt>
             <div class="scene-in">
               <div class="win"><img src="img/t-reading.webp" width="1920" height="1200" alt="A natal chart with the written reading open beside it: Sun in Aries, Moon in Cancer and Pisces rising" loading="lazy"></div>
@@ -336,7 +354,7 @@
             <ul class="chips"><li>Sign and house passages</li><li>Aspect passages</li><li>Balance of the chart</li><li>Draft badges</li></ul>
           </div>
         </article>
-        <article class="panel" role="tabpanel" id="panel-styles" aria-labelledby="tab-styles" hidden>
+        <article class="panel" role="tabpanel" id="panel-styles" aria-labelledby="tab-styles" data-cut="chart" hidden>
           <div class="scene" data-tilt>
             <div class="scene-in">
               <div class="win"><img src="img/t-styles.webp" width="1920" height="1200" alt="The chart style menu open over a natal chart, with the built-in styles and the display options" loading="lazy"></div>
@@ -349,7 +367,7 @@
             <ul class="chips"><li>8 built-in styles</li><li>Save your own</li><li>Night and Paper themes</li><li>Print and copy</li><li>PNG, SVG and PDF</li></ul>
           </div>
         </article>
-        <article class="panel" role="tabpanel" id="panel-rectify" aria-labelledby="tab-rectify" hidden>
+        <article class="panel" role="tabpanel" id="panel-rectify" aria-labelledby="tab-rectify" data-cut="chart" hidden>
           <div class="scene" data-tilt>
             <div class="scene-in">
               <div class="win"><img src="img/t-rectify.webp" width="1920" height="1200" alt="A natal chart with the rectify bar open: the birth time moved one minute from the recorded time" loading="lazy"></div>
@@ -362,7 +380,7 @@
             <ul class="chips"><li>1 second to 1 day steps</li><li>Play and pause</li><li>Back to the recorded time</li><li>Save the new time</li></ul>
           </div>
         </article>
-        <article class="panel" role="tabpanel" id="panel-palette" aria-labelledby="tab-palette" hidden>
+        <article class="panel" role="tabpanel" id="panel-palette" aria-labelledby="tab-palette" data-cut="chart" hidden>
           <div class="scene" data-tilt>
             <div class="scene-in">
               <div class="win"><img src="img/t-palette.webp" width="1920" height="1200" alt="The command palette open over the workspace, listing matching clients and commands" loading="lazy"></div>
@@ -445,6 +463,31 @@
       </div>
       <p class="sp-foot">The 3suns engine against <code>swetest</code>, the Swiss Ephemeris reference program, for a fictional chart.</p>
     </figure>
+    <div class="live-band reveal" id="live">
+  <figure class="sky" id="sky">
+      <div class="sky-stage">
+        <div class="sky-tilt" id="sky-tilt">
+          <div class="sky-layer sky-back" aria-hidden="true"><span class="halo"></span><span class="orbit-line o1"></span><span class="orbit-line o2"></span></div>
+          <svg id="wheel" class="sky-layer sky-base" viewBox="0 0 640 640" role="img" aria-labelledby="sky-cap"></svg>
+          <svg id="wheel-asp" class="sky-layer sky-asp" viewBox="0 0 640 640" aria-hidden="true"></svg>
+          <svg id="wheel-pl" class="sky-layer sky-pl" viewBox="0 0 640 640"></svg>
+          <div class="sky-layer sky-front" aria-hidden="true">
+            <span class="chip3d c-sun" id="sun-ticker"></span>
+            <span class="chip3d c-moon" id="moon-ticker"></span>
+          </div>
+        </div>
+        <div class="sky-tip" role="status" hidden></div>
+      </div>
+      <figcaption id="sky-cap">
+        <span class="sky-line"><span class="live" aria-hidden="true"></span>The sky right now <span class="sep" aria-hidden="true">·</span> <time id="sky-time"></time></span>
+        <span class="sky-line hint-line">Calculated live in your browser. Move over a planet.</span>
+      </figcaption>
+    </figure>
+      <div class="live-text">
+        <h3>This wheel is <em>live.</em></h3>
+        <p>It shows the sky right now, calculated in your browser while you read, and it agrees with the Swiss Ephemeris to within 14 arc seconds. The app itself is far stricter: every position is checked to 0.01″.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -491,8 +534,8 @@
         <h3>macOS</h3>
         <p class="req">macOS 11 Big Sur or later</p>
         <div class="dl-buttons">
-          <a class="btn btn-gold dl-btn" data-dl="macArm" href="#download"><span class="dl-l">Apple Silicon</span><span class="dl-s">M1 and later · <span data-size="macArm">about 90 MB</span></span></a>
-          <a class="btn btn-ghost dl-btn" data-dl="macIntel" href="#download"><span class="dl-l">Intel</span><span class="dl-s">older Macs · <span data-size="macIntel">about 90 MB</span></span></a>
+          <a class="btn btn-gold dl-btn" data-dl="macArm" href="#download"><span class="dl-l">Apple Silicon</span><span class="dl-s">M1 and later · <span data-size="macArm">93 MB</span></span></a>
+          <a class="btn btn-ghost dl-btn" data-dl="macIntel" href="#download"><span class="dl-l">Intel</span><span class="dl-s">older Macs · <span data-size="macIntel">95 MB</span></span></a>
         </div>
         <p class="dl-note">Signed by Karia LLC and notarized by Apple. Open the .dmg and drag 3suns into Applications.</p>
       </article>
