@@ -23,7 +23,7 @@
 <link rel="preload" href="fonts/cormorant-garamond-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"3suns","applicationCategory":"LifestyleApplication","operatingSystem":"macOS 11 or later, Windows 10 or 11 (64-bit)","softwareVersion":"0.4.1","publisher":{"@type":"Organization","name":"Karia LLC"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"3suns","applicationCategory":"LifestyleApplication","operatingSystem":"macOS 11 or later, Windows 10 or 11 (64-bit)","softwareVersion":"0.5.0","publisher":{"@type":"Organization","name":"Karia LLC"}}</script>
 </head>
 <body>
 <canvas id="stars" aria-hidden="true"></canvas>
@@ -56,7 +56,7 @@
     <div class="suns" aria-hidden="true"><span class="sun s1"></span><span class="sun s2"></span><span class="sun s3"></span></div>
     <div class="wrap explode-in">
       <div class="hx-copy" id="hx-copy">
-        <p class="pill"><span class="pulse" aria-hidden="true"></span><span>New · Version <span data-version>0.4.1</span> for Mac and Windows</span></p>
+        <p class="pill"><span class="pulse" aria-hidden="true"></span><span>New · Version <span data-version>0.5.0</span> for Mac and Windows</span></p>
         <h1>Astrology software, <em>a generation ahead.</em></h1>
         <p class="lede">Every chart, forecast and client report in one fast window, checked to a hundredth of an arc second.</p>
         <div class="install" id="install">
@@ -198,16 +198,18 @@
     <header class="sec-head reveal">
       <p class="eyebrow">Inside 3suns</p>
       <h2>Every technique you reach for, <em>one click away.</em></h2>
-      <p>Fourteen parts of the program, shown as they are. The modules follow a consultation: the chart, what is coming, how to time it and where it plays out.</p>
+      <p>Seventeen parts of the program, shown as they are. The modules follow a consultation: the chart, what is coming, how to time it and where it plays out.</p>
     </header>
     <div class="tour-grid">
       <div class="tour-rail" role="tablist" aria-label="Modules" id="tour-rail">
         <button type="button" role="tab" id="tab-transits" aria-controls="panel-transits" aria-selected="true" class="is-on"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9.5" stroke-dasharray="2 3"/><path d="M12 2.5v3M21.5 12h-3"/></svg><span>Transits</span><i class="bar"></i></button>
+        <button type="button" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 3.5v17M12 8.5h4M12 12h4"/></svg><span>Notes</span><em class="new">New</em><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-synastry" aria-controls="panel-synastry" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg><span>Synastry</span><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-forecast" aria-controls="panel-forecast" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M8 11h12M4 16h7M10 20h8"/></svg><span>Forecast</span><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-ephemeris" aria-controls="panel-ephemeris" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c4-1 6-9 9-9s5 8 9 9M3 7c5 0 8 11 18 10"/></svg><span>Ephemeris</span><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-timing" aria-controls="panel-timing" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/></svg><span>Timing</span><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-traditional" aria-controls="panel-traditional" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M5 9h14M12 4l7 5H5zM7 9v11M12 9v11M17 9v11"/></svg><span>Traditional</span><i class="bar"></i></button>
+        <button type="button" role="tab" id="tab-methods" aria-controls="panel-methods" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><span>Methods</span><em class="new">New</em><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-map" aria-controls="panel-map" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span>Map</span><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-midpoints" aria-controls="panel-midpoints" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 12V3"/><circle cx="12" cy="12" r="1.6"/></svg><span>Midpoints</span><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-vedic" aria-controls="panel-vedic" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M12 3.5L20.5 12 12 20.5 3.5 12zM3.5 3.5l17 17M20.5 3.5l-17 17"/></svg><span>Vedic</span><i class="bar"></i></button>
@@ -215,6 +217,7 @@
         <button type="button" role="tab" id="tab-reading" aria-controls="panel-reading" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5zM8.5 9h7M8.5 12.5h7M8.5 16h4.5"/></svg><span>Reading</span><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-styles" aria-controls="panel-styles" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg><span>Chart styles</span><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-rectify" aria-controls="panel-rectify" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2.5h6"/></svg><span>Rectify</span><i class="bar"></i></button>
+        <button type="button" role="tab" id="tab-minimal" aria-controls="panel-minimal" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="12" cy="12" r="4.5"/></svg><span>Minimal</span><em class="new">New</em><i class="bar"></i></button>
         <button type="button" role="tab" id="tab-palette" aria-controls="panel-palette" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 10l3 2.5L7 15M12.5 15H17"/></svg><span>Find anything</span><i class="bar"></i></button>
       </div>
 
@@ -230,6 +233,19 @@
             <h3>Play the sky around the chart</h3>
             <p>Put the transits around any chart and move through time by the hour, day, month or year, or press play. The contacts within a degree are listed beside the wheel and update as you go. Click a life event and the chart jumps to that day.</p>
             <ul class="chips"><li>Hour, day, month and year steps</li><li>Play and pause</li><li>Contacts in orb</li><li>Life events</li><li>Swap inner and outer</li></ul>
+          </div>
+        </article>
+        <article class="panel" role="tabpanel" id="panel-notes" aria-labelledby="tab-notes" data-cut="chart" hidden>
+          <div class="scene" data-tilt>
+            <div class="scene-in">
+              <div class="win"><img src="img/t-notes.webp" width="1920" height="1200" alt="A natal chart with the Notes tab open beside it: a prediction, a session note and a research note, each with linked planets" loading="lazy"></div>
+              <img class="float" style="--l:2%;--t:9%;--w:22%" src="img/d-notes.webp" width="708" height="1096" alt="A prediction note with its due date, its outcome buttons, the linked chart and the count of predictions that came true" loading="lazy">
+            </div>
+          </div>
+          <div class="panel-text">
+            <h3>Notes that know the chart</h3>
+            <p>Write session notes, research and predictions beside the wheel. Type @ to link a planet or point and [[ to link another note; linked points are marked on the wheel. A prediction gets a due date and, later, an outcome, so you can see how many came true. Every note is a plain Markdown file that opens in any editor.</p>
+            <ul class="chips"><li>Sessions, research, predictions</li><li>@ points and [[links]]</li><li>Marks on the wheel</li><li>Outcomes</li><li>Markdown files</li></ul>
           </div>
         </article>
         <article class="panel" role="tabpanel" id="panel-synastry" aria-labelledby="tab-synastry" data-cut="chart" hidden>
@@ -295,6 +311,19 @@
             <h3>Speculum, dignities and almutens</h3>
             <p>A full speculum with latitude, right ascension, declination, speed, azimuth and altitude. The almuten of every house cusp and main point, and the almuten of the chart after Ibn Ezra, with the prenatal syzygy and the planetary hour. Dispositors, receptions, Lilly's accidental dignities and antiscia sit on the same page.</p>
             <ul class="chips"><li>Egyptian terms</li><li>Dorothean triplicities</li><li>Planetary hours</li><li>Receptions</li><li>Antiscia</li><li>15 Arabic parts</li></ul>
+          </div>
+        </article>
+        <article class="panel" role="tabpanel" id="panel-methods" aria-labelledby="tab-methods" hidden>
+          <div class="scene" data-tilt>
+            <div class="scene-in">
+              <div class="win"><img src="img/t-methods.webp" width="1920" height="1200" alt="The almuten method editor: the places that count, the terms, the triplicity rulers and the points for each dignity, with the score table showing what changes before saving" loading="lazy"></div>
+              <img class="float" style="--l:73%;--t:8%;--w:25%" src="img/d-methods.webp" width="808" height="1200" alt="The lot editor with the formula of the Lot of Courage by day, reversed by night" loading="lazy">
+            </div>
+          </div>
+          <div class="panel-text">
+            <h3>Your method, not a fixed one</h3>
+            <p>Choose which places count for the almuten, the points for each dignity, Egyptian or Ptolemaic terms and Dorothean or Ptolemaic triplicity rulers, and see the scores change before you save. Edit the formula of any Arabic part or add your own, and edit the term and triplicity tables themselves. Share your lots with a colleague as a file.</p>
+            <ul class="chips"><li>Almuten weights</li><li>Terms and triplicities</li><li>Your own lots</li><li>Day and night formulas</li><li>Share as a file</li></ul>
           </div>
         </article>
         <article class="panel" role="tabpanel" id="panel-map" aria-labelledby="tab-map" hidden>
@@ -386,6 +415,19 @@
             <h3>Rectify by watching the angles move</h3>
             <p>Step the birth time by anything from a second to a day, or let it play, and watch the angles, the houses and the positions move. 3suns shows how far you are from the recorded time, and saves the new time when it fits.</p>
             <ul class="chips"><li>1 second to 1 day steps</li><li>Play and pause</li><li>Back to the recorded time</li><li>Save the new time</li></ul>
+          </div>
+        </article>
+        <article class="panel" role="tabpanel" id="panel-minimal" aria-labelledby="tab-minimal" data-cut="chart" hidden>
+          <div class="scene" data-tilt>
+            <div class="scene-in">
+              <div class="win"><img src="img/t-minimal.webp" width="1920" height="1200" alt="The Minimal layout: a short side bar, the wheel without aspect lines and the positions beside it" loading="lazy"></div>
+              <img class="float" style="--l:21%;--t:57%;--w:56%" src="img/d-minimal.webp" width="1300" height="621" alt="The workspace settings with the choice between the full toolbox and the Minimal layout, and the sections shown in the side bar" loading="lazy">
+            </div>
+          </div>
+          <div class="panel-text">
+            <h3>The full toolbox, or a quiet one</h3>
+            <p>Switch to the Minimal layout and 3suns shows the wheel, the positions and your notes, with only the sections you pick in the side bar. Turn off aspect lines, reading text or asteroids if you don't use them. Nothing is removed: every tool is still one search away, and the full toolbox is one click back.</p>
+            <ul class="chips"><li>Full or Minimal</li><li>Pick the side bar</li><li>Aspect lines on or off</li><li>Everything in ⌘K</li></ul>
           </div>
         </article>
         <article class="panel" role="tabpanel" id="panel-palette" aria-labelledby="tab-palette" data-cut="chart" hidden>
@@ -503,26 +545,26 @@
 <section class="everything" id="everything">
   <div class="wall" id="wall" aria-hidden="true">
     <div class="wall-plane">
-      <div class="wall-row r1"><div class="wall-track"><img src="img/s-natal.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-forecast.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-map.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-synastry.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-timing.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-ephemeris.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-natal-classic.webp" width="800" height="500" alt="" loading="lazy"></div></div>
-      <div class="wall-row r2"><div class="wall-track"><img src="img/s-vedic.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-search.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-transits.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-tables.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-forecast-calendar.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-multiwheel.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-midpoints-2.webp" width="800" height="500" alt="" loading="lazy"></div></div>
-      <div class="wall-row r3"><div class="wall-track"><img src="img/s-map-2.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-natal-aspects.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-kinds.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-rectify.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-vedic-2.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-forecast-list.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-palette.webp" width="800" height="500" alt="" loading="lazy"></div></div>
+      <div class="wall-row r1"><div class="wall-track"><img src="img/s-natal.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-forecast.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-map.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-synastry.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-timing.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-ephemeris.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-natal-classic.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-notes.webp" width="800" height="500" alt="" loading="lazy"></div></div>
+      <div class="wall-row r2"><div class="wall-track"><img src="img/s-vedic.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-search.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-transits.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-tables.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-forecast-calendar.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-multiwheel.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-midpoints-2.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-methods.webp" width="800" height="500" alt="" loading="lazy"></div></div>
+      <div class="wall-row r3"><div class="wall-track"><img src="img/s-map-2.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-natal-aspects.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-kinds.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-rectify.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-vedic-2.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-forecast-list.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-palette.webp" width="800" height="500" alt="" loading="lazy"><img src="img/s-minimal.webp" width="800" height="500" alt="" loading="lazy"></div></div>
     </div>
   </div>
   <div class="wrap">
     <header class="sec-head center wall-head reveal">
       <p class="eyebrow">The full list</p>
-      <h2>What 3suns <span data-version>0.4.1</span> <em>does today.</em></h2>
+      <h2>What 3suns <span data-version>0.5.0</span> <em>does today.</em></h2>
       <p>For astrologers coming from another program, here is the checklist.</p>
     </header>
     <div class="groups">
       <div class="group reveal"><h3>Charts</h3><ul><li>Natal, event and moment charts</li><li>Transits and a time stepper for any chart</li><li>Secondary, tertiary, minor and user-rate progressions</li><li>Solar arc, Naibod, one-degree, Ascendant and Vertex directions, with converse</li><li>Solar, lunar and planet returns, Sun ingresses</li><li>Synastry, composite, Davison and harmonic charts</li><li>Multiwheels with up to three rings</li><li>Relocated charts</li></ul></div>
-      <div class="group reveal"><h3>The wheel</h3><ul><li>8 built-in chart styles, and your own saved styles</li><li>Night and Paper themes, colour or black and white</li><li>Chart details and a table beside the wheel</li><li>Aspect glyphs, minor aspects, sign rulers</li><li>Zoom, and swap the inner and outer charts</li><li>Rectification with a birth time stepper</li><li>Print, copy, or save as PNG, SVG or PDF</li></ul></div>
-      <div class="group reveal"><h3>Points and settings</h3><ul><li>11 house systems, tropical or sidereal</li><li>Geocentric, topocentric or heliocentric</li><li>Mean or true node, South Node, Black Moon Lilith</li><li>Chiron, Pholus, the main asteroids and 15 more</li><li>Vertex and Anti-Vertex, Uranian points</li><li>15 Arabic parts</li><li>49 fixed stars with contacts and parans</li><li>Speculum and aspect tables</li></ul></div>
-      <div class="group reveal"><h3>Forecasting</h3><ul><li>Year timeline of transits, progressions and directions</li><li>Exact dates for every pass</li><li>Stations, ingresses, lunations and eclipses</li><li>Void-of-course Moon</li><li>Declination parallels and contraparallels</li><li>Transits to the progressed chart</li><li>Month calendar and graphic ephemeris</li></ul></div>
-      <div class="group reveal"><h3>Traditional</h3><ul><li>Almutens of houses and points, almuten of the chart</li><li>Essential dignities and planetary hours</li><li>Dispositors and mutual receptions</li><li>Lilly's accidental dignities</li><li>Antiscia and contra-antiscia</li><li>Annual and monthly profections</li><li>Firdaria and zodiacal releasing</li><li>Primary directions, four keys</li></ul></div>
+      <div class="group reveal"><h3>Wheel and workspace</h3><ul><li>8 built-in chart styles, and your own saved styles</li><li>Night and Paper themes, colour or black and white</li><li>Chart details and a table beside the wheel</li><li>Aspect glyphs, minor aspects, sign rulers</li><li>Zoom, and swap the inner and outer charts</li><li>Rectification with a birth time stepper</li><li>Print, copy, or save as PNG, SVG or PDF</li><li>Full or Minimal layout, every command in ⌘K</li><li>A getting-started guide, tips and searchable Help</li></ul></div>
+      <div class="group reveal"><h3>Points and settings</h3><ul><li>11 house systems, tropical or sidereal</li><li>Geocentric, topocentric or heliocentric</li><li>Mean or true node, South Node, Black Moon Lilith</li><li>Chiron, Pholus, the main asteroids and 15 more</li><li>Vertex and Anti-Vertex, Uranian points</li><li>15 Arabic parts, and your own</li><li>49 fixed stars with contacts and parans</li><li>Speculum and aspect tables</li></ul></div>
+      <div class="group reveal"><h3>Forecasting</h3><ul><li>Year timeline of transits, progressions and directions</li><li>Exact dates for every pass</li><li>Stations, ingresses, lunations and eclipses</li><li>Void-of-course Moon</li><li>Declination parallels and contraparallels</li><li>Transits to the progressed chart</li><li>Month calendar and graphic ephemeris</li><li>Electional search with stacked conditions</li></ul></div>
+      <div class="group reveal"><h3>Traditional</h3><ul><li>Almutens of houses and points, almuten of the chart</li><li>Essential dignities and planetary hours</li><li>Dispositors and mutual receptions</li><li>Lilly's accidental dignities</li><li>Antiscia and contra-antiscia</li><li>Annual and monthly profections</li><li>Firdaria and zodiacal releasing</li><li>Primary directions, four keys</li><li>Your own almuten, term and triplicity methods</li></ul></div>
       <div class="group reveal"><h3>Mapping and dials</h3><ul><li>Planetary lines in mundo or zodiacal</li><li>Parans and local space</li><li>Lines near any place, with relocation</li><li>90°, 45° and 360° dials</li><li>Midpoint trees and the midpoint sort</li></ul></div>
       <div class="group reveal"><h3>Vedic</h3><ul><li>South and North Indian charts</li><li>Lahiri, Raman, Krishnamurti and more ayanamsas</li><li>Nakshatras and padas</li><li>16 divisional charts</li><li>Vimshottari dashas to three levels</li></ul></div>
-      <div class="group reveal"><h3>Search, database and reports</h3><ul><li>Electional search with stacked conditions</li><li>Chart search across your database</li><li>Chart files with tags, notes and life events</li><li>AAF, CSV and JSON import and export</li><li>Natal, Year Ahead and Relationship reports</li><li>Your own branding on every PDF</li><li>Command palette for charts, places and commands</li></ul></div>
+      <div class="group reveal"><h3>Notes, charts and reports</h3><ul><li>Notes linked to charts, points and other notes</li><li>Predictions with a due date and an outcome</li><li>Notes marked on the wheel, kept as Markdown files</li><li>Chart files with tags and life events</li><li>Chart search across your database</li><li>AAF, CSV and JSON import and export</li><li>Natal, Year Ahead and Relationship reports</li><li>Your own branding on every PDF</li></ul></div>
     </div>
   </div>
 </section>
@@ -532,7 +574,7 @@
   <div class="wrap">
     <header class="sec-head center reveal">
       <p class="eyebrow">Download</p>
-      <h2>Get 3suns <span data-version>0.4.1</span></h2>
+      <h2>Get 3suns <span data-version>0.5.0</span></h2>
       <p>For Mac and Windows. No account needed. 3suns asks for your licence key the first time it starts, and your charts stay on your computer.</p>
     </header>
     <div class="dl-grid">
@@ -558,7 +600,7 @@
         <p class="dl-note">The Windows installer is not code-signed yet, so Windows SmartScreen may stop it. Click <b>More info</b>, then <b>Run anyway</b>.</p>
       </article>
     </div>
-    <p class="dl-source">3suns <span data-version>0.4.1</span> is released under the GNU AGPL v3. <a data-dl="source" href="#download">Download the source code for <span data-version>0.4.1</span></a></p>
+    <p class="dl-source">3suns <span data-version>0.5.0</span> is released under the GNU AGPL v3. <a data-dl="source" href="#download">Download the source code for <span data-version>0.5.0</span></a></p>
   </div>
 </section>
 
@@ -571,7 +613,7 @@
     </header>
     <div class="faq-list">
       <details class="reveal" open><summary>Which computers does it run on?</summary><p>Macs with Apple Silicon or an Intel processor on macOS 11 Big Sur or later, and 64-bit Windows 10 or 11, which includes Windows tablets such as Microsoft Surface. There is no iPad or Android app yet.</p><p>Not sure which Mac you have? Choose <b>Apple Silicon</b>, the chip in most Macs from 2021 on. To check, open the Apple menu and choose About This Mac.</p></details>
-      <details class="reveal"><summary>Do I need a licence key?</summary><p>Yes. 3suns asks for a licence key the first time it starts, and a key works on one computer. There is nothing to sign up for. Until a key is entered you can look at charts, but you cannot create or change them or make PDFs.<span class="needs-contact" hidden> To get a key, write to <a data-contact href="#faq"></a>.</span></p></details>
+      <details class="reveal"><summary>Do I need a licence key?</summary><p>Yes. 3suns asks for a licence key the first time it starts and opens once the key is active. A key works on one computer, and you can move it to another computer from the licence window. There is nothing to sign up for.<span class="needs-contact" hidden> To get a key, write to <a data-contact href="#faq"></a>.</span></p></details>
       <details class="reveal"><summary>Can I bring my charts from my current program?</summary><p>Yes. Export your charts as an AAF file, the exchange format most astrology programs write, and import it into a 3suns chart file. CSV and JSON work too, and 3suns exports in the same formats.</p></details>
       <details class="reveal"><summary>Where are my charts kept?</summary><p>On your computer, in the 3suns chart database. You don't need an account.</p></details>
       <details class="reveal"><summary>How accurate are the calculations?</summary><p>3suns uses the Swiss Ephemeris files for 1200 to 3000 AD, and a built-in analytical ephemeris outside that range. Positions and house cusps are tested against the Swiss Ephemeris reference program to 0.01 arc seconds, and time zones come from the IANA database, including historical changes and local mean time.</p></details>
