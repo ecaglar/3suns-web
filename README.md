@@ -3,7 +3,6 @@
 Professional astrology software for Mac and Windows, published by Karia LLC.
 
 - Installers: the [Releases](https://github.com/ecaglar/3suns-web/releases) of this repository
-- Source code: attached to every release as `3suns-source.zip` (GNU AGPL v3)
 
 This repository holds the website files and the installers. The rest of this page is for whoever maintains the site.
 
@@ -38,8 +37,8 @@ Every image is a capture of the real 3suns app. All charts belong to fictional p
 ## Releasing a new version
 
 1. Create a release in this repository with the tag `v<version>` and attach the installers, the Windows
-   updater files (`.sig`, `latest.json`) and `3suns-source.zip`.
-2. In `js/config.js`, set `version`, the four links in `downloads`, and `sizes`.
+   updater files (`.sig`, `latest.json`).
+2. In `js/config.js`, set `version`, the three links in `downloads`, and `sizes`.
 3. Commit, push, and upload the changed files to the web host.
 
 A download link left empty still shows its button; a click then explains that the file is not online yet.
@@ -49,7 +48,7 @@ Filling in `contactEmail` shows the address in the footer and in the licence key
 
 - The desktop app's updater reads `https://github.com/ecaglar/3suns-web/releases/latest/download/latest.json`,
   so the newest release must always carry that file.
-- No source code link on the page (Emre, 2026-11-13). The source zip stays in every release next to the installers, and the app links to it from its About box.
+- No source code anywhere: not on the page and not in the releases (Emre, 2026-11-13).
 - The site lives at https://3suns.app. Link previews (Slack, WhatsApp, X) use the full address
   `https://3suns.app/img/og-image.jpg`, and the page names https://3suns.app/ as its canonical address.
   If the address ever changes, update `og:url`, `og:image` and the canonical link in `index.html`.

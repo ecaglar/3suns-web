@@ -53,7 +53,7 @@
       } else if (key) {
         a.addEventListener("click", function (e) {
           e.preventDefault();
-          toast(key === "source" ? "The source code download is not online yet. Please check back shortly." : "This download is not online yet. Please check back shortly.");
+          toast("This download is not online yet. Please check back shortly.");
         });
       }
     });

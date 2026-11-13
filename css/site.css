@@ -626,8 +626,6 @@ p { margin: 0; }
 .dl-s { font-size: 0.76rem; font-weight: 500; opacity: 0.75; }
 .dl-note { font-size: 0.85rem; color: var(--ink-3); line-height: 1.5; }
 .dl-note b { color: var(--ink-2); font-weight: 600; }
-.dl-source { position: relative; text-align: center; margin-top: 28px; font-size: 0.9rem; color: var(--ink-3); }
-.dl-source a { color: var(--gold); text-underline-offset: 3px; }
 @media (max-width: 760px) { .dl-grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- faq ---------- */
