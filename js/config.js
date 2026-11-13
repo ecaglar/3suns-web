@@ -22,5 +22,5 @@ window.THREESUNS = {
     windows: "62 MB"
   },
   // Optional contact address, shown in the footer when filled in, e.g. "hello@3suns.app".
-  contactEmail: ""
+  contactEmail: "hello@karia.cc"
 };
