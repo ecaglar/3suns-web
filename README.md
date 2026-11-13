@@ -49,7 +49,7 @@ Filling in `contactEmail` shows the address in the footer and in the licence key
 
 - The desktop app's updater reads `https://github.com/ecaglar/3suns-web/releases/latest/download/latest.json`,
   so the newest release must always carry that file.
-- Keep the source code link on the page: 3suns is released under the GNU AGPL v3.
+- No source code link on the page (Emre, 2026-11-13). The source zip stays in every release next to the installers, and the app links to it from its About box.
 - The site lives at https://3suns.app. Link previews (Slack, WhatsApp, X) use the full address
   `https://3suns.app/img/og-image.jpg`, and the page names https://3suns.app/ as its canonical address.
   If the address ever changes, update `og:url`, `og:image` and the canonical link in `index.html`.
