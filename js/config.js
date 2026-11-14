@@ -22,5 +22,13 @@ window.THREESUNS = {
     windows: "62 MB"
   },
   // Optional contact address, shown in the footer when filled in, e.g. "hello@3suns.app".
-  contactEmail: "hello@karia.cc"
+  contactEmail: "hello@karia.cc",
+  // Visitor analytics with PostHog (project "3suns" in the Karia LLC organization). The project key is
+  // public by design. Leave posthogKey empty to switch analytics off. Requests go through /ingest on
+  // this site (functions/ingest), so blockers that stop posthog.com do not hide visitors.
+  analytics: {
+    posthogKey: "phc_veMcMmguSYBRYJRNwJqx2SXzehxxvPZQHtbn5wyVsCDb",
+    proxy: "/ingest",
+    uiHost: "https://us.posthog.com"
+  }
 };

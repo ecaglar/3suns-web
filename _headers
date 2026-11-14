@@ -1,0 +1,24 @@
+# Cloudflare Pages response headers (this file itself is not served).
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# Images and fonts rarely change: browsers keep them for a week and refresh quietly after that.
+/img/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/fonts/*
+  Cache-Control: public, max-age=2592000, immutable
+
+# Styles and scripts change with the site: keep them an hour.
+/css/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/js/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Maintenance files: reachable, but not for search results.
+/README.md
+  X-Robots-Tag: noindex
+/functions/*
+  X-Robots-Tag: noindex

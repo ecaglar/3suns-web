@@ -1,0 +1,21 @@
+# 3suns
+
+> 3suns is professional astrology software for Mac and Windows, published by Karia LLC. Charts, forecasts, traditional timing, astrocartography, Vedic charts and client reports in one window, with planet positions checked to 0.01 arc seconds against the Swiss Ephemeris. Charts are kept on the user's computer; no account is needed. A licence key is required.
+
+## Pages
+
+- [Home](https://3suns.app/): what 3suns does, with screens of the app
+- [Download](https://3suns.app/download): installers for Mac (Apple Silicon and Intel) and Windows 10 or 11, frequently asked questions and the full feature list
+
+## Key facts
+
+- Systems: macOS 11 Big Sur or later (Apple Silicon or Intel) and 64-bit Windows 10 or 11, including Windows tablets. No iPad or Android app yet.
+- Charts: natal, event and moment charts; transits; secondary, tertiary and minor progressions; solar arc and other directions; solar, lunar and planet returns; synastry, composite, Davison and harmonic charts; relocated charts; multiwheels.
+- Settings: 11 house systems, tropical or sidereal, geocentric, topocentric or heliocentric.
+- Forecasting: a year timeline with exact dates, stations, ingresses, lunations and eclipses, a graphic ephemeris and an electional search.
+- Traditional: almutens, essential dignities, Arabic parts, profections, firdaria, zodiacal releasing and primary directions, with your own almuten, term and triplicity methods.
+- Mapping: planetary lines, parans and local space; midpoint trees and dials.
+- Vedic: South and North Indian charts, 16 divisional charts, nakshatras and Vimshottari dashas.
+- Notes: notes and predictions linked to charts and points, kept as Markdown files.
+- Reports: Natal, Year Ahead and Relationship reports as PDF with the astrologer's own branding.
+- Import and export: AAF, CSV and JSON.
