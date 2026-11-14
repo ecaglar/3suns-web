@@ -1,0 +1,8 @@
+wrangler.jsonc
+worker
+.wrangler
+node_modules
+.gitignore
+.assetsignore
+.git
+.nojekyll

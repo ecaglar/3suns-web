@@ -1,0 +1,16 @@
+// Cloudflare Workers Builds deploys this repository on every push to main (npx wrangler deploy).
+// The repository root is the site; .assetsignore keeps the maintenance files out of it.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "3suns-web",
+  "compatibility_date": "2026-11-01",
+  "main": "worker/index.js",
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/ingest/*"],
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

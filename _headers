@@ -1,4 +1,4 @@
-# Cloudflare Pages response headers (this file itself is not served).
+# Response headers for the static files (Cloudflare Workers static assets; this file itself is not served).
 
 /*
   X-Content-Type-Options: nosniff
@@ -19,6 +19,4 @@
 
 # Maintenance files: reachable, but not for search results.
 /README.md
-  X-Robots-Tag: noindex
-/functions/*
   X-Robots-Tag: noindex

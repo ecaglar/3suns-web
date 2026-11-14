@@ -8,9 +8,12 @@ This repository holds the website files and the installers. The rest of this pag
 
 ## The website
 
-A static site (plain HTML, CSS and JavaScript, no build step), hosted on Cloudflare Pages: every push to
-`main` goes live at https://3suns.app within a minute or two. Internal links use the site's clean addresses
-(`/`, `/download`), and `functions/` holds one Cloudflare Pages Function (the analytics proxy below).
+A static site (plain HTML, CSS and JavaScript, no build step), hosted as a Cloudflare Worker with static
+assets (Workers Builds runs `npx wrangler deploy`): every push to `main` goes live at https://3suns.app within
+a minute or two. Internal links use the site's clean addresses (`/`, `/download`). `wrangler.jsonc` serves the
+repository root as the site, `.assetsignore` keeps the maintenance files out of it, and `worker/index.js` only
+answers `/ingest/*` (the analytics proxy below). Do not add a `functions/` folder: the Workers build stops on
+it.
 
 The look is "Daylight": the pages are set in the app's Paper palette, so the app's Night windows read as
 objects on them, and night returns in three bands with a curved horizon. The logo's three suns are the only
@@ -32,10 +35,11 @@ accents. There are two pages:
 | `js/config.js` | **the only file to edit per release**: version, download links, file sizes, optional contact email |
 | `js/site.js` | both pages: version, sizes and links from `config.js`, OS detection for the install buttons, the Mac menu, the Night/Paper switch, the kinds of chart, the feature tour, the report fan, reveals |
 | `js/analytics.js` | PostHog visitor analytics for both pages and the 404 page (see "Analytics" below) |
-| `functions/ingest/[[path]].js` | Cloudflare Pages Function: passes `/ingest/*` on to PostHog |
+| `wrangler.jsonc`, `.assetsignore` | how Cloudflare deploys the site, and the files it leaves out |
+| `worker/index.js` | the Worker script: passes `/ingest/*` on to PostHog; everything else is a static file |
 | `404.html` | the page for addresses that do not exist (answered with status 404, not indexed) |
 | `robots.txt`, `sitemap.xml`, `llms.txt` | for search engines and AI search: rules, the two pages, a plain summary of 3suns |
-| `_headers` | Cloudflare Pages response headers: caching for images, fonts, styles and scripts; safety headers |
+| `_headers` | response headers: caching for images, fonts, styles and scripts; safety headers |
 | `js/sky.js` | the live "sky right now" chart wheel in the Accuracy section (its starfield code needs a `#stars` canvas, which the Daylight pages do not have) |
 | `js/astronomy.browser.min.js` | Astronomy Engine 2.1.19 (MIT licence, header kept), used only by the live wheel |
 | `js/glyphs.js` | the astrology glyph outlines the app itself uses (from DejaVu Sans) |
@@ -80,7 +84,7 @@ key in `js/config.js` (`analytics.posthogKey`) is public by design; empty it to 
 - It runs only on 3suns.app (not on Cloudflare preview addresses or a local copy) and sets no cookies: a visit
   is kept in the tab's session storage, so one visit is followed across pages, and a returning visitor counts
   again.
-- Requests go to `/ingest` on the site itself and the Pages Function passes them on to PostHog, so blockers
+- Requests go to `/ingest` on the site itself and the Worker passes them on to PostHog, so blockers
   that stop posthog.com do not hide visitors. `/ingest/static/*` and `/ingest/array/*` go to
   us-assets.i.posthog.com, the rest to us.i.posthog.com, with the visitor's address for the country.
 - Events: `$pageview` and `$pageleave` (with how far the page was read), `$autocapture` clicks, and
