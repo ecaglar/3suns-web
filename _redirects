@@ -1,0 +1,7 @@
+# Short links (Cloudflare Workers static assets read this file; it is not served).
+# 302 means browsers do not remember the target: to point a link somewhere new,
+# change its line, push to main, and the same link opens the new address.
+
+# The product video used in outreach emails and posts.
+/video   https://www.youtube.com/watch?v=hxZLU6ov9EU  302
+/video/  https://www.youtube.com/watch?v=hxZLU6ov9EU  302

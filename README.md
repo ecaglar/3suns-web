@@ -40,6 +40,7 @@ accents. There are two pages:
 | `404.html` | the page for addresses that do not exist (answered with status 404, not indexed) |
 | `robots.txt`, `sitemap.xml`, `llms.txt` | for search engines and AI search: rules, the two pages, a plain summary of 3suns |
 | `_headers` | response headers: caching for images, fonts, styles and scripts; safety headers |
+| `_redirects` | short links: `3suns.app/video` opens the current product video on YouTube; change the target there when the video is replaced |
 | `js/sky.js` | the live "sky right now" chart wheel in the Accuracy section (its starfield code needs a `#stars` canvas, which the Daylight pages do not have) |
 | `js/astronomy.browser.min.js` | Astronomy Engine 2.1.19 (MIT licence, header kept), used only by the live wheel |
 | `js/glyphs.js` | the astrology glyph outlines the app itself uses (from DejaVu Sans) |
