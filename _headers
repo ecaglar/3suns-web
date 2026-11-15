@@ -11,11 +11,12 @@
 /fonts/*
   Cache-Control: public, max-age=2592000, immutable
 
-# Styles and scripts change with the site: keep them an hour.
+# Styles and scripts change with the site (js/config.js with every release): browsers check for a newer copy on
+# every visit (a quick 304 when nothing changed), so a release shows at once instead of up to an hour later.
 /css/*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=0, must-revalidate
 /js/*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=0, must-revalidate
 
 # Maintenance files: reachable, but not for search results.
 /README.md

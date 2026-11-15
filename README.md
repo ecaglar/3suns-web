@@ -67,6 +67,8 @@ A download link left empty still shows its button; a click then explains that th
 `contactEmail` (now `hello@karia.cc`) shows the address in the footer of both pages and in the licence key
 answer of the FAQ; emptied, both disappear. The version on the pages (`data-version`), the file sizes
 (`data-size`) and every download link (`data-dl`) are filled in from `config.js` when the page loads.
+Browsers check `css/` and `js/` for a newer copy on every visit (`_headers`), so a release shows at once; the
+`?r=2` on the `config.js` script tags only pushed out copies cached before that rule and needs no change.
 
 ## Things to keep
 
