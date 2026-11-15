@@ -37,6 +37,7 @@ accents. There are two pages:
 | `js/analytics.js` | PostHog visitor analytics for both pages and the 404 page (see "Analytics" below) |
 | `wrangler.jsonc`, `.assetsignore` | how Cloudflare deploys the site, and the files it leaves out |
 | `worker/index.js` | the Worker script: passes `/ingest/*` on to PostHog; everything else is a static file |
+| `privacy.html` | the privacy policy (3suns.app/privacy), linked in every footer; it has the switch that turns analytics off for a browser. Update it, and its date, whenever the app or the site starts sending something new |
 | `404.html` | the page for addresses that do not exist (answered with status 404, not indexed) |
 | `robots.txt`, `sitemap.xml`, `llms.txt` | for search engines and AI search: rules, the two pages, a plain summary of 3suns |
 | `_headers` | response headers: caching for images, fonts, styles and scripts; safety headers |
@@ -92,6 +93,8 @@ key in `js/config.js` (`analytics.posthogKey`) is public by design; empty it to 
   `download_clicked` for every installer link, with `installer` (macArm, macIntel, windows), `platform`,
   `mac_chip`, `placement` (hero, hero_mac_menu, closing, download_page) and `version`. Every event also
   carries `offered_version` and `page`.
+- Visitors can turn analytics off for their browser with the switch on the privacy page (`#analytics-choice`): it
+  stores `3suns.analytics` = `off` in local storage, and `analytics.js` then does not load PostHog at all.
 - Traffic sources come from the referrer and from `utm_*` tags: link to the site as
   `https://3suns.app/?utm_source=reddit&utm_campaign=<post>` to tell posts apart.
 

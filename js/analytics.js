@@ -3,13 +3,50 @@
    remembered in the tab's session storage, so a visitor is followed from page to page within one visit only.
    Recorded: page views and page leaves (with how far the page was read), clicks through autocapture, and a
    "download_clicked" event for every installer link, with the installer, where on the site it was clicked and
-   the version on offer. */
+   the version on offer.
+   A visitor can turn analytics off for their browser on the privacy page (#analytics-choice): the choice is kept
+   in local storage under "3suns.analytics" = "off", and then PostHog is not even loaded. */
 (function () {
   "use strict";
   var site = window.THREESUNS || {};
   var cfg = site.analytics || {};
+  var OFF_KEY = "3suns.analytics";
+  function isOff() { try { return localStorage.getItem(OFF_KEY) === "off"; } catch (e) { return false; } }
+
+  /* the switch on the privacy page */
+  function wireChoice() {
+    var box = document.getElementById("analytics-choice");
+    if (!box) return;
+    var state = box.querySelector("[data-analytics-state]"), btn = box.querySelector("[data-analytics-toggle]");
+    var active = !!cfg.posthogKey && (/(^|\.)3suns\.app$/.test(location.hostname) || !!cfg.anyHost);
+    function show() {
+      var off = isOff();
+      state.textContent = !active ? "Analytics does not run on this copy of the site." :
+        off ? "Analytics is off in this browser. Nothing is sent to PostHog." : "Analytics is on in this browser.";
+      btn.textContent = off ? "Turn analytics back on" : "Turn off analytics";
+      btn.hidden = !active;
+    }
+    btn.addEventListener("click", function () {
+      var ph = window.posthog;
+      try {
+        if (isOff()) {
+          localStorage.removeItem(OFF_KEY);
+          localStorage.removeItem("__ph_opt_in_out_" + cfg.posthogKey);
+        } else {
+          localStorage.setItem(OFF_KEY, "off");
+          if (ph && ph.opt_out_capturing) ph.opt_out_capturing();
+        }
+      } catch (e) { /* storage blocked: then nothing persists, and analytics stays as it was */ }
+      show();
+    });
+    show();
+    box.hidden = false;
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", wireChoice); else wireChoice();
+
   if (!cfg.posthogKey) return;
   if (!/(^|\.)3suns\.app$/.test(location.hostname) && !cfg.anyHost) return;   // not on previews or a laptop
+  if (isOff()) return;                                                         // the visitor turned it off
 
   var apiHost = cfg.proxy ? location.origin + cfg.proxy : (cfg.apiHost || "https://us.i.posthog.com");
 
