@@ -14,7 +14,8 @@
 - Charts: natal, event and moment charts; transits; secondary, tertiary and minor progressions; solar arc and other directions; solar, lunar and planet returns; synastry, composite, Davison and harmonic charts; relocated charts; multiwheels.
 - Settings: 11 house systems, tropical or sidereal, geocentric, topocentric or heliocentric.
 - Forecasting: a year timeline with exact dates, stations, ingresses, lunations and eclipses, a graphic ephemeris and an electional search.
-- Traditional: almutens, essential dignities, Arabic parts, profections, firdaria, zodiacal releasing and primary directions, with your own almuten, term and triplicity methods.
+- Traditional: almutens, essential dignities, Arabic parts, profections, firdaria and zodiacal releasing, with your own almuten, term and triplicity methods.
+- Primary directions: Placidus semi-arc, Placidus under the pole and Regiomontanus in zodiaco; Placidus, Regiomontanus and Campanus in mundo; Naibod, Ptolemy, Cardan, own-rate and true solar arc keys; direct and converse; latitude on the ecliptic, the planet's own or by Bianchini's rule; Part of Fortune, antiscia and fixed stars as promissors; speculum and CSV export.
 - Mapping: planetary lines, parans and local space; midpoint trees and dials.
 - Vedic: South and North Indian charts, 16 divisional charts, nakshatras and Vimshottari dashas.
 - Notes: notes and predictions linked to charts and points, kept as Markdown files.
