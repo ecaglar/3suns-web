@@ -74,6 +74,56 @@
   systemButtons();
   wireDownloads();
 
+  /* ---------- Windows: what to click after the download starts ----------
+     The installer is not code-signed yet, so Edge or Chrome may hold the file back ("isn't commonly downloaded")
+     and Windows SmartScreen may stop the first start. A click on a Windows link starts the download as before and
+     opens this short guide beside it, so nobody is left thinking the download failed. */
+  var winHelp = null, winHelpBack = null;
+  function closeWinHelp() {
+    if (!winHelp || winHelp.hidden) return;
+    winHelp.classList.toggle("on", false);
+    document.documentElement.classList.toggle("dlh-open", false);
+    setTimeout(function () { if (winHelp) winHelp.hidden = true; }, 200);
+    if (winHelpBack && winHelpBack.focus) winHelpBack.focus();
+  }
+  function openWinHelp(from) {
+    var url = CFG.downloads && CFG.downloads.windows;
+    if (!url) return;
+    if (!winHelp) {
+      winHelp = document.createElement("div");
+      winHelp.className = "dlh";
+      winHelp.hidden = true;
+      winHelp.innerHTML =
+        '<div class="dlh-box" role="dialog" aria-modal="true" aria-labelledby="dlh-t">' +
+          '<button type="button" class="dlh-x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+          '<p class="eyebrow"><span class="dot sun-gold" aria-hidden="true"></span>Windows</p>' +
+          '<h2 id="dlh-t">Your download is starting</h2>' +
+          '<p class="dlh-lead">The Windows installer is not code-signed yet, so your browser and Windows may ask you to confirm it. This is what to click.</p>' +
+          '<ol class="dlh-steps">' +
+            '<li><b>If the browser holds the file back</b><span>In Edge, open Downloads (Ctrl+J), click <b>&middot;&middot;&middot;</b> next to 3suns and choose <b>Keep</b>, then <b>Show more</b> and <b>Keep anyway</b>. In Chrome, open Downloads (Ctrl+J) and choose <b>Keep</b> or <b>Download suspicious file</b>.</span></li>' +
+            '<li><b>Open the installer</b><span>If Windows says it protected your PC, click <b>More info</b>, then <b>Run anyway</b>.</span></li>' +
+            '<li><b>Start 3suns</b><span>It asks for your licence key the first time.</span></li>' +
+          '</ol>' +
+          '<p class="dlh-again">Download did not start? <a class="dlh-link" rel="noopener"></a></p>' +
+        '</div>';
+      document.body.appendChild(winHelp);
+      winHelp.addEventListener("click", function (e) { if (e.target === winHelp) closeWinHelp(); });
+      $(".dlh-x", winHelp).addEventListener("click", closeWinHelp);
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeWinHelp(); });
+    }
+    var again = $(".dlh-link", winHelp);
+    again.href = url;
+    again.textContent = "Download the installer again" + (CFG.sizes && CFG.sizes.windows ? " (" + CFG.sizes.windows + ")" : "");
+    winHelpBack = from;
+    winHelp.hidden = false;
+    document.documentElement.classList.toggle("dlh-open", true);
+    requestAnimationFrame(function () { winHelp.classList.toggle("on", true); $(".dlh-x", winHelp).focus(); });
+  }
+  $$('a[data-dl="windows"]').forEach(function (a) {
+    // the download itself goes on as the link says; the guide only opens next to it
+    a.addEventListener("click", function () { if (CFG.downloads && CFG.downloads.windows) openWinHelp(a); });
+  });
+
   /* ---------- the arrow on the Mac button: a small menu with both Mac builds ---------- */
   var macSplit = $("#inst-mac"), macMore = $("#inst-more"), macList = $("#inst-menu");
   function macMenu(on, focusFirst) {
