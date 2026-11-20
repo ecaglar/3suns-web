@@ -20,4 +20,4 @@
 - Vedic: South and North Indian charts, 16 divisional charts, nakshatras and Vimshottari dashas.
 - Notes: notes and predictions linked to charts and points, kept as Markdown files.
 - Reports: Natal, Year Ahead and Relationship reports as PDF with the astrologer's own branding.
-- Import and export: AAF, CSV and JSON.
+- Import and export: AAF, CSV and JSON. Solar Fire chart files (.SFcht) are imported directly, with notes, Rodden ratings and life events.
