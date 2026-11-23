@@ -5,16 +5,16 @@
   button still shows, but a click explains that the file is not online yet.
 
   The installers live in the Releases of the public repository ecaglar/3suns-web:
-    macArm:   "https://github.com/ecaglar/3suns-web/releases/download/v0.5.6/3suns_0.5.6_aarch64.dmg",
-    macIntel: "https://github.com/ecaglar/3suns-web/releases/download/v0.5.6/3suns_0.5.6_x64.dmg",
-    windows:  "https://github.com/ecaglar/3suns-web/releases/download/v0.5.6/3suns_0.5.6_x64-setup.exe",
+    macArm:   "https://github.com/ecaglar/3suns-web/releases/download/v0.5.7/3suns_0.5.7_aarch64.dmg",
+    macIntel: "https://github.com/ecaglar/3suns-web/releases/download/v0.5.7/3suns_0.5.7_x64.dmg",
+    windows:  "https://github.com/ecaglar/3suns-web/releases/download/v0.5.7/3suns_0.5.7_x64-setup.exe",
 */
 window.THREESUNS = {
-  version: "0.5.6",
+  version: "0.5.7",
   downloads: {
-    macArm: "https://github.com/ecaglar/3suns-web/releases/download/v0.5.6/3suns_0.5.6_aarch64.dmg",
-    macIntel: "https://github.com/ecaglar/3suns-web/releases/download/v0.5.6/3suns_0.5.6_x64.dmg",
-    windows: "https://github.com/ecaglar/3suns-web/releases/download/v0.5.6/3suns_0.5.6_x64-setup.exe"
+    macArm: "https://github.com/ecaglar/3suns-web/releases/download/v0.5.7/3suns_0.5.7_aarch64.dmg",
+    macIntel: "https://github.com/ecaglar/3suns-web/releases/download/v0.5.7/3suns_0.5.7_x64.dmg",
+    windows: "https://github.com/ecaglar/3suns-web/releases/download/v0.5.7/3suns_0.5.7_x64-setup.exe"
   },
   sizes: {
     macArm: "93 MB",
