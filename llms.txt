@@ -25,7 +25,7 @@
 
 ## Common questions
 
-- Can I open my Solar Fire charts on a Mac? Yes. 3suns runs natively on Mac and opens Solar Fire chart files (.SFcht) directly, with their notes, Rodden ratings and life events. It runs on Windows too.
-- Which astrology software for Mac calculates primary directions? 3suns calculates primary directions in zodiaco and in mundo (Placidus, Regiomontanus and Campanus) with a choice of keys and latitude rules, natively on Mac and Windows.
+- Can 3suns open my Solar Fire charts? Yes. 3suns opens Solar Fire chart files (.SFcht) directly, with their notes, Rodden ratings and life events, on Mac and on Windows.
+- Does 3suns calculate primary directions? Yes: in zodiaco and in mundo (Placidus semi-arc, Placidus under the pole, Regiomontanus and Campanus), with eight keys, direct and converse, and a choice of latitude rules, on Mac and Windows.
 - Does 3suns need an account or an internet connection? No account. Charts stay on the computer. The app goes online only to check its licence key and to look for updates.
 - How accurate is it? Positions and house cusps are tested against the Swiss Ephemeris reference program to 0.01 arc seconds, and time zones come from the IANA database, including historical changes and local mean time.
