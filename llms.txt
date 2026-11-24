@@ -1,6 +1,6 @@
 # 3suns
 
-> 3suns is professional astrology software for Mac and Windows, published by Karia LLC. Charts, forecasts, traditional timing, astrocartography, Vedic charts and client reports in one window, with planet positions checked to 0.01 arc seconds against the Swiss Ephemeris. Charts are kept on the user's computer; no account is needed. A licence key is required.
+> 3suns is professional astrology software for Mac and Windows, published by Karia LLC. Charts, forecasts, traditional timing, primary directions, astrocartography, Vedic charts and client reports in one window, with planet positions checked to 0.01 arc seconds against the Swiss Ephemeris. It runs natively on Macs with Apple Silicon or Intel and on Windows 10 or 11. Charts are kept on the user's computer; no account is needed. A licence key is required.
 
 ## Pages
 
@@ -10,14 +10,22 @@
 
 ## Key facts
 
-- Systems: macOS 11 Big Sur or later (Apple Silicon or Intel) and 64-bit Windows 10 or 11, including Windows tablets. No iPad or Android app yet.
-- Charts: natal, event and moment charts; transits; secondary, tertiary and minor progressions; solar arc and other directions; solar, lunar and planet returns; synastry, composite, Davison and harmonic charts; relocated charts; multiwheels.
-- Settings: 11 house systems, tropical or sidereal, geocentric, topocentric or heliocentric.
-- Forecasting: a year timeline with exact dates, stations, ingresses, lunations and eclipses, a graphic ephemeris and an electional search.
-- Traditional: almutens, essential dignities, Arabic parts, profections, firdaria and zodiacal releasing, with your own almuten, term and triplicity methods.
+- Systems: macOS 11 Big Sur or later (Apple Silicon or Intel; signed by Karia LLC and notarized by Apple) and 64-bit Windows 10 or 11, including Windows tablets. No iPad or Android app yet.
+- Charts: natal, event and moment charts; transits with a time stepper; secondary, tertiary, minor and user-rate progressions; solar arc, Naibod, one-degree, Ascendant and Vertex directions, with converse; solar, lunar and planet returns; synastry, composite, Davison and harmonic charts; relocated charts; multiwheels with up to three rings.
+- Wheel: 8 built-in chart styles and your own saved styles; a full aspect grid with every point, the angles and parallels; rectification with a birth time stepper; print, copy, or save as PNG, SVG or PDF.
+- Settings: Lilly's orbs by default, or your own orbs by planet or by aspect; 11 house systems; tropical or sidereal; geocentric, topocentric or heliocentric; mean or true node; Chiron, the main asteroids and 15 more; Vertex, Uranian points; 49 fixed stars.
+- Forecasting: a year timeline with exact dates, stations, ingresses, lunations and eclipses, void-of-course Moon, declination parallels, a month calendar, a graphic ephemeris and an electional search.
+- Traditional: almutens, essential dignities, Lilly's accidental dignities, receptions, antiscia, 15 Arabic parts, planetary hours, profections, firdaria and zodiacal releasing, with your own almuten, term and triplicity methods.
 - Primary directions: Placidus semi-arc, Placidus under the pole and Regiomontanus in zodiaco; Placidus, Regiomontanus and Campanus in mundo; Naibod, Ptolemy, Cardan, own-rate and true solar arc keys; direct and converse; latitude on the ecliptic, the planet's own or by Bianchini's rule; Part of Fortune, antiscia and fixed stars as promissors; speculum and CSV export.
-- Mapping: planetary lines, parans and local space; midpoint trees and dials.
-- Vedic: South and North Indian charts, 16 divisional charts, nakshatras and Vimshottari dashas.
+- Mapping: planetary lines in mundo or zodiacal, parans and local space; 90, 45 and 360 degree dials; midpoint trees.
+- Vedic: South and North Indian charts, Lahiri, Raman, Krishnamurti and other ayanamsas, nakshatras and padas, 16 divisional charts and Vimshottari dashas.
 - Notes: notes and predictions linked to charts and points, kept as Markdown files.
 - Reports: Natal, Year Ahead and Relationship reports as PDF with the astrologer's own branding.
-- Import and export: AAF, CSV and JSON. Solar Fire chart files (.SFcht) are imported directly, with notes, Rodden ratings and life events.
+- Import and export: Solar Fire chart files (.SFcht) open directly, with notes, Rodden ratings and life events. Saved charts from astro.com can be pasted in as AAF text. AAF, CSV and JSON import and export.
+
+## Common questions
+
+- Can 3suns open my Solar Fire charts? Yes. 3suns opens Solar Fire chart files (.SFcht) directly, with their notes, Rodden ratings and life events, on Mac and on Windows.
+- Does 3suns calculate primary directions? Yes: in zodiaco and in mundo (Placidus semi-arc, Placidus under the pole, Regiomontanus and Campanus), with eight keys, direct and converse, and a choice of latitude rules, on Mac and Windows.
+- Does 3suns need an account or an internet connection? No account. Charts stay on the computer. The app goes online only to check its licence key and to look for updates.
+- How accurate is it? Positions and house cusps are tested against the Swiss Ephemeris reference program to 0.01 arc seconds, and time zones come from the IANA database, including historical changes and local mean time.
