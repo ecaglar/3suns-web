@@ -398,7 +398,20 @@
     else window.addEventListener("scroll", function () { draw(0); }, { passive: true });
   }
 
-  function boot() { initStars(); initSky(); }
+  // The live wheel sits far down the page: build it and play its opening only when it comes near the screen,
+  // so the first screen loads without the planet calculations and the visitor actually sees the opening.
+  function bootSky() {
+    var svg = document.getElementById("wheel");
+    if (!svg || !("IntersectionObserver" in window)) { initSky(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      io.disconnect();
+      initSky();
+    }, { rootMargin: "300px 0px" });
+    io.observe(svg.closest(".sky") || svg);
+  }
+
+  function boot() { initStars(); bootSky(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();

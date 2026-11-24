@@ -2,6 +2,7 @@
 
 Professional astrology software for Mac and Windows, published by Karia LLC.
 
+- Website: https://3suns.app
 - Installers: the [Releases](https://github.com/ecaglar/3suns-web/releases) of this repository
 
 This repository holds the website files and the installers. The rest of this page is for whoever maintains the site.
@@ -39,7 +40,8 @@ accents. There are two pages:
 | `worker/index.js` | the Worker script: passes `/ingest/*` on to PostHog; everything else is a static file |
 | `privacy.html` | the privacy policy (3suns.app/privacy), linked in every footer; it has the switch that turns analytics off for a browser. Update it, and its date, whenever the app or the site starts sending something new |
 | `404.html` | the page for addresses that do not exist (answered with status 404, not indexed) |
-| `robots.txt`, `sitemap.xml`, `llms.txt` | for search engines and AI search: rules, the two pages, a plain summary of 3suns |
+| `robots.txt`, `sitemap.xml`, `llms.txt` | for search engines and AI search: rules, the pages, a plain summary of 3suns |
+| `4c52297814c65b61c20969b41f8caf21.txt` | the IndexNow key: lets the site tell Bing (and the engines that share IndexNow) about new or changed pages at once. Keep the file; after a page changes, send its address to `https://api.indexnow.org/indexnow` with this key |
 | `_headers` | response headers: caching for images, fonts, styles and scripts; safety headers |
 | `_redirects` | short links: `3suns.app/video` opens the current product video on YouTube; change the target there when the video is replaced |
 | `js/sky.js` | the live "sky right now" chart wheel in the Accuracy section (its starfield code needs a `#stars` canvas, which the Daylight pages do not have) |
