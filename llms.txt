@@ -6,6 +6,8 @@
 
 - [Home](https://3suns.app/): what 3suns does, with screens of the app
 - [Download](https://3suns.app/download): installers for Mac (Apple Silicon and Intel) and Windows 10 or 11, frequently asked questions and the full feature list
+- [Solar Fire charts](https://3suns.app/solar-fire): how Solar Fire chart files (.SFcht) open in 3suns on Mac and Windows, what comes across, in four steps
+- [Primary directions](https://3suns.app/primary-directions): the six methods, eight keys, latitude choices, significators and promissors, and how the arcs are checked
 - [Privacy policy](https://3suns.app/privacy): charts stay on the user's computer; the app only goes online for its licence key and updates; the website counts visits without cookies
 
 ## Key facts
