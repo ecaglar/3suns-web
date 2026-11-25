@@ -557,3 +557,23 @@ html.dlh-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
+
+/* guide pages (/solar-fire, /primary-directions): the legal column with numbered steps, screens, a table and questions */
+.guide-steps { margin: 12px 0 14px; padding-left: 1.4em; display: grid; gap: 10px; }
+.guide-steps li { padding-left: 4px; color: var(--paper-ink-2); line-height: 1.65; }
+.guide-steps li::marker { color: var(--paper-accent); font-weight: 600; }
+.guide-steps b { color: var(--paper-ink); font-weight: 600; }
+.guide-fig { margin: 32px 0 8px; }
+.guide-fig figcaption { margin-top: 12px; font-size: 0.9375rem; color: var(--paper-ink-2); }
+.guide-table { margin: 12px 0 14px; overflow-x: auto; border: 1px solid var(--paper-line); border-radius: var(--radius); background: var(--paper-hi); }
+.guide-table table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+.guide-table th, .guide-table td { padding: 12px 16px; text-align: left; vertical-align: top; border-top: 1px solid var(--paper-line); color: var(--paper-ink-2); line-height: 1.5; }
+.guide-table thead th { border-top: 0; color: var(--paper-ink); font-weight: 600; }
+.guide-table tbody th { color: var(--paper-ink); font-weight: 600; }
+.guide-table td:nth-child(2) { white-space: nowrap; font-style: italic; }
+.guide-faq { margin-top: 8px; }
+.guide .faq-list summary { font-size: 1.3125rem; }
+.guide code { font-size: 0.9em; }
+.guide-fine { margin-top: 40px; font-size: 0.875rem; }
+.bring-item p.bring-more, .panel-more { font-size: 0.9375rem; font-weight: 600; }
+.panel-more { margin-top: 14px; }
