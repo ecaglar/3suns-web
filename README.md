@@ -38,7 +38,7 @@ accents. There are two pages:
 | `js/analytics.js` | PostHog visitor analytics for both pages and the 404 page (see "Analytics" below) |
 | `wrangler.jsonc`, `.assetsignore` | how Cloudflare deploys the site, and the files it leaves out |
 | `worker/index.js` | the Worker script: passes `/ingest/*` on to PostHog; everything else is a static file |
-| `solar-fire.html`, `primary-directions.html` | guide pages for two searches astrologers make (3suns.app/solar-fire, 3suns.app/primary-directions): plain text, screens and questions, in the legal column style; their FAQPage data is built from the questions on the page, so keep both in step. Linked from every footer, the home page and the download FAQ |
+| `solar-fire.html`, `primary-directions.html`, `mac.html` | guide pages for searches astrologers make (3suns.app/solar-fire, 3suns.app/primary-directions, 3suns.app/mac): plain text, screens and questions, in the legal column style; their FAQPage data is built from the questions on the page, so keep both in step. Linked from every footer, the home page and the download FAQ |
 | `img/g-*.webp` | the screens of the guide pages (the Solar Fire import, fictional charts) |
 | `privacy.html` | the privacy policy (3suns.app/privacy), linked in every footer; it has the switch that turns analytics off for a browser. Update it, and its date, whenever the app or the site starts sending something new |
 | `404.html` | the page for addresses that do not exist (answered with status 404, not indexed) |
